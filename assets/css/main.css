@@ -1497,6 +1497,16 @@ section,
 .interests { background-color: #d0cfcf; }  /* Fresh Apple Green */
 .contact { background-color: #fffbfe; }  /* Calming Botanical Green */
 
+.tooltip-inner {
+  max-width: 300px; /* default is 200px */
+  white-space: pre-wrap; /* ensures line breaks work */
+  text-align: left;       /* optional: makes it look cleaner */
+}
+
+.wide-tooltip + .tooltip > .tooltip-inner {
+  max-width: 400px; /* bigger width just for the 'wide-tooltip' class */
+}
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
