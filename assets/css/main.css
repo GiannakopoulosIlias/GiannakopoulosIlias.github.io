@@ -1498,7 +1498,7 @@ section,
 .contact { background-color: #fffbfe; }  /* Calming Botanical Green */
 
 .tooltip-inner {
-  max-width: 400px !important;   /* wider than default */
+  max-width: 500px !important;   /* wider than default */
   white-space: normal !important; /* allow line breaks */
   text-align: left;               /* optional: align text */
   font-size: 0.9rem;              /* optional: adjust size */
