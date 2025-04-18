@@ -27,6 +27,9 @@
   <!-- Main CSS File -->
   <link href="./assets/css/main.css" rel="stylesheet">
 
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
   <!-- =======================================================
   * Template Name: iPortfolio
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -101,6 +104,15 @@
         <h2></h2>
         <p><strong>Hello!</strong></p>
         <p>I am <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+      </div>
+
+      <!-- Map + title -->
+      <div id="hero-map" style="opacity: 0; pointer-events: none; transition: opacity 1s ease; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <div id="world-map" style="width: 100%; height: 100%;"></div>
+        <div class="map-title-overlay" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+            color: white; font-size: 2rem; z-index: 2; text-shadow: 1px 1px 5px black; display: none;">
+          Where I have traveled
+        </div>
       </div>
 
     </section><!-- /Hero Section -->
@@ -689,6 +701,76 @@
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+  </script>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Leaflet -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const heroMap = document.getElementById("hero-map");
+      const mapTitle = document.querySelector(".map-title-overlay");
+      let mapInitialized = false;
+  
+      function initMap() {
+        if (mapInitialized) return;
+        mapInitialized = true;
+        console.log("Initializing map...");
+  
+        heroMap.style.opacity = "1";
+        heroMap.style.pointerEvents = "auto";
+  
+        const map = L.map("world-map", {
+          center: [20, 0],
+          zoom: 2,
+          zoomControl: false,
+          attributionControl: false,
+          scrollWheelZoom: true,
+          dragging: true
+        });
+  
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 8
+        }).addTo(map);
+  
+        const markers = [
+          { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022" },
+          { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
+          { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
+        ];
+  
+        markers.forEach((m) => {
+          const marker = L.marker([m.lat, m.lng])
+            .addTo(map)
+            .bindTooltip(m.text);
+          if (m.link) marker.on("click", () => (window.location.href = m.link));
+        });
+  
+        // Show "Places I have been" briefly
+        mapTitle.style.display = "block";
+        mapTitle.style.opacity = 0;
+        mapTitle.style.transition = "opacity 1s ease";
+  
+        setTimeout(() => {
+          mapTitle.style.opacity = 1;
+        }, 300);
+  
+        setTimeout(() => {
+          mapTitle.style.opacity = 0;
+        }, 3000);
+      }
+  
+      // Trigger when user scrolls past 100px
+      setTimeout(() => {
+        window.addEventListener("scroll", function () {
+          const scrollY = window.scrollY || window.pageYOffset;
+          if (scrollY > 100) {
+            initMap();
+          }
+        });
+      }, 200); // delay ensures layout is loaded
+    });
   </script>
 
 </body>
