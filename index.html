@@ -28,7 +28,10 @@
   <link href="./assets/css/main.css" rel="stylesheet">
   
   <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -704,77 +707,75 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- For hovering -->
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const heroMap = document.getElementById("hero-map");
-    const mapTitle = document.querySelector(".map-title-overlay");
+    document.addEventListener("DOMContentLoaded", function () {
+      const heroMap = document.getElementById("hero-map");
+      const mapTitle = document.querySelector(".map-title-overlay");
+      let mapInitialized = false;
   
-    let mapInitialized = false;
+      function initMap() {
+        if (mapInitialized) return;
+        mapInitialized = true;
   
-    function initMap() {
-      if (mapInitialized) return;
-      mapInitialized = true;
+        heroMap.style.display = "block";
+        heroMap.style.opacity = 0;
+        heroMap.style.transition = "opacity 1s ease";
+        requestAnimationFrame(() => {
+          heroMap.style.opacity = 1;
+        });
   
-      heroMap.style.display = "block";
+        const map = L.map("world-map", {
+          center: [20, 0],
+          zoom: 2,
+          zoomControl: false,
+          attributionControl: false,
+          scrollWheelZoom: true,
+          dragging: true,
+        });
   
-      // Fade in effect
-      heroMap.style.opacity = 0;
-      heroMap.style.transition = "opacity 1s ease";
-      requestAnimationFrame(() => {
-        heroMap.style.opacity = 1;
-      });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 8,
+        }).addTo(map);
   
-      // Leaflet map setup
-      const map = L.map('world-map', {
-        center: [20, 0],
-        zoom: 2,
-        zoomControl: false,
-        attributionControl: false,
-        scrollWheelZoom: true,
-        dragging: true
-      });
+        const markers = [
+          {
+            lat: 48.8566,
+            lng: 2.3522,
+            text: "Conference in Paris, 2022",
+          },
+          { lat: 40.7128, lng: -74.006, text: "Postdoc at NYU, NYC" },
+          { lat: 37.9838, lng: 23.7275, text: "Home in Athens" },
+        ];
   
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 8
-      }).addTo(map);
+        markers.forEach((m) => {
+          const marker = L.marker([m.lat, m.lng])
+            .addTo(map)
+            .bindTooltip(m.text);
+          if (m.link) marker.on("click", () => (window.location.href = m.link));
+        });
   
-      const markers = [
-        { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022", link: "#portfolio" },
-        { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
-        { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
-      ];
-  
-      markers.forEach(m => {
-        const marker = L.marker([m.lat, m.lng]).addTo(map).bindTooltip(m.text);
-        if (m.link) marker.on('click', () => window.location.href = m.link);
-      });
-  
-      // Show title briefly
-      mapTitle.style.display = "block";
-      mapTitle.style.opacity = 0;
-      mapTitle.style.transition = "opacity 1s ease";
-  
-      setTimeout(() => {
-        mapTitle.style.opacity = 1;
-      }, 300); // fade in
-  
-      setTimeout(() => {
+        mapTitle.style.display = "block";
         mapTitle.style.opacity = 0;
-      }, 3000); // fade out after 3s
-    }
+        mapTitle.style.transition = "opacity 1s ease";
   
-    // Trigger map when user scrolls past a certain threshold
-    window.addEventListener("scroll", function () {
-      const scrollY = window.scrollY || window.pageYOffset;
-      const triggerPoint = window.innerHeight * 0.3; // 30% scroll height
+        setTimeout(() => {
+          mapTitle.style.opacity = 1;
+        }, 300);
   
-      if (scrollY > triggerPoint) {
-        initMap();
+        setTimeout(() => {
+          mapTitle.style.opacity = 0;
+        }, 3000);
       }
+  
+      window.addEventListener("scroll", function () {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const triggerPoint = window.innerHeight * 0.3;
+  
+        if (scrollY > triggerPoint) {
+          initMap();
+        }
+      });
     });
-  });
   </script>
-
-
 
 </body>
 
