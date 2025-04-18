@@ -814,7 +814,12 @@
           markers.forEach(m => {
             L.marker([m.lat, m.lng])
               .addTo(map)
-              .bindTooltip(m.text, {permanent:false, direction:"top"});
+              .bindTooltip(m.text, {
+                permanent: true,
+                direction: 'top',
+                offset: [0, -10]
+              })
+              .openTooltip();
           });
         }
       });
