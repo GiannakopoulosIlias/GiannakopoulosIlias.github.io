@@ -98,21 +98,20 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background" style="position: relative; overflow: hidden;">
     
-      <!-- Initial hero content -->
-      <div id="hero-initial" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3;">
-        <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="cover-img" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-        
-        <div class="container" data-aos="fade-up" data-aos-delay="100" style="position: relative; z-index: 3;">
-          <h2></h2>
-          <p><strong>Hello!</strong></p>
-          <p>
-            I am 
-            <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span>
-            <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
-          </p>
-        </div>
-      </div>
+      <!-- Draggable image on top -->
+      <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="cover-img">
     
+      <!-- Hero text container -->
+      <div class="container" data-aos="fade-up" data-aos-delay="100" style="position: relative; z-index: 3;">
+        <h2></h2>
+        <p><strong>Hello!</strong></p>
+        <p>
+          I am 
+          <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span>
+          <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
+        </p>
+      </div>
+        
       <!-- Map + title -->
       <div id="hero-map" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
         <div id="world-map" style="width: 100%; height: 100%;"></div>
@@ -702,70 +701,79 @@
   <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="./assets/js/main.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- For hovering -->
   <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const heroInitial = document.getElementById("hero-initial");
     const heroMap = document.getElementById("hero-map");
     const mapTitle = document.querySelector(".map-title-overlay");
   
-    let isDragging = false;
-    let startX = 0;
+    let mapInitialized = false;
   
-    // Detect swipe left to reveal map
-    heroInitial.addEventListener("mousedown", function (e) {
-      isDragging = true;
-      startX = e.clientX;
-    });
+    function initMap() {
+      if (mapInitialized) return;
+      mapInitialized = true;
   
-    document.addEventListener("mouseup", function (e) {
-      if (!isDragging) return;
-      isDragging = false;
-      const deltaX = e.clientX - startX;
-      if (deltaX < -50) { // swiped left
-        heroInitial.style.display = "none";
-        heroMap.style.display = "block";
+      heroMap.style.display = "block";
   
-        // Initialize map
-        const map = L.map('world-map', {
-          center: [20, 0],
-          zoom: 2,
-          zoomControl: false,
-          scrollWheelZoom: true,
-          dragging: true,
-          attributionControl: false
-        });
+      // Fade in effect
+      heroMap.style.opacity = 0;
+      heroMap.style.transition = "opacity 1s ease";
+      requestAnimationFrame(() => {
+        heroMap.style.opacity = 1;
+      });
   
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 8
-        }).addTo(map);
+      // Leaflet map setup
+      const map = L.map('world-map', {
+        center: [20, 0],
+        zoom: 2,
+        zoomControl: false,
+        attributionControl: false,
+        scrollWheelZoom: true,
+        dragging: true
+      });
   
-        const markers = [
-          { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022", link: "#portfolio" },
-          { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
-          { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
-        ];
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 8
+      }).addTo(map);
   
-        markers.forEach(m => {
-          const marker = L.marker([m.lat, m.lng]).addTo(map).bindTooltip(m.text);
-          if (m.link) marker.on('click', () => window.location.href = m.link);
-        });
+      const markers = [
+        { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022", link: "#portfolio" },
+        { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
+        { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
+      ];
   
-        // Show title briefly
-        mapTitle.style.display = "block";
-        setTimeout(() => {
-          mapTitle.style.opacity = 1;
-        }, 100); // slight delay
+      markers.forEach(m => {
+        const marker = L.marker([m.lat, m.lng]).addTo(map).bindTooltip(m.text);
+        if (m.link) marker.on('click', () => window.location.href = m.link);
+      });
   
-        setTimeout(() => {
-          mapTitle.style.transition = "opacity 1s ease";
-          mapTitle.style.opacity = 0;
-        }, 3000); // hide after 3 seconds
+      // Show title briefly
+      mapTitle.style.display = "block";
+      mapTitle.style.opacity = 0;
+      mapTitle.style.transition = "opacity 1s ease";
+  
+      setTimeout(() => {
+        mapTitle.style.opacity = 1;
+      }, 300); // fade in
+  
+      setTimeout(() => {
+        mapTitle.style.opacity = 0;
+      }, 3000); // fade out after 3s
+    }
+  
+    // Trigger map when user scrolls past a certain threshold
+    window.addEventListener("scroll", function () {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const triggerPoint = window.innerHeight * 0.3; // 30% scroll height
+  
+      if (scrollY > triggerPoint) {
+        initMap();
       }
     });
   });
   </script>
+
 
 
 </body>
