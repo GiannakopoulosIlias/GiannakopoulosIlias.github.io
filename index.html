@@ -105,12 +105,57 @@
 
     <section id="hero" class="hero section dark-background">
 
-      <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+      <div class="hero-slider swiper init-swiper" style="height:100vh; overflow:hidden;">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2></h2>
-        <p><strong>Hello!</strong></p>
-        <p>I am <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <!-- Swiper config JSON -->
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": false,
+            "speed": 600,
+            "slidesPerView": 1,
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            }
+          }
+        </script>
+
+        <div class="swiper-slide">
+          <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+    
+          <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <h2></h2>
+            <p><strong>Hello!</strong></p>
+            <p>I am <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+          </div>
+        </div>
+        
+        <div class="swiper-slide" style="position:relative;">
+          <!-- Map container -->
+          <div
+            id="world-map"
+            style="width:100%; height:100%;"
+          ></div>
+          <!-- Overlay title -->
+          <div
+            class="map-title-overlay"
+            style="
+              position:absolute;
+              top:20px; left:50%;
+              transform:translateX(-50%);
+              color:white;
+              font-size:2rem;
+              z-index:10;
+              text-shadow:1px 1px 5px black;
+            "
+          >
+            Where I have traveled
+          </div>
+        </div>
+
+        <!-- pagination bullets -->
+        <div class="swiper-pagination" style="z-index:10;"></div>
       </div>
 
     </section>
@@ -708,21 +753,22 @@
   
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // 1) Initialize Swiper
-      const swiper = new Swiper("#hero.swiper-container", {
+      // 1) initialize Swiper on the hero-slider
+      const swiper = new Swiper("#hero .init-swiper", {
         speed: 600,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
-        }
+        },
       });
   
-      // 2) Lazy‐init the map when slide 2 becomes active
+      // 2) when user lands on Slide 2, init Leaflet map once
       let mapInitialized = false;
       swiper.on("slideChange", function () {
         if (swiper.activeIndex === 1 && !mapInitialized) {
           mapInitialized = true;
   
+          // create the map
           const map = L.map("world-map", {
             center: [20, 0],
             zoom: 2,
@@ -732,31 +778,25 @@
             dragging: true
           });
   
+          // add tiles
           L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             maxZoom: 8
           }).addTo(map);
   
-          // Your pins:
-          const markers = [
+          // add markers & popups
+          [
             { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022" },
             { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
             { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
-          ];
-          markers.forEach(m => {
+          ].forEach((m) => {
             L.marker([m.lat, m.lng])
               .addTo(map)
-              .bindTooltip(m.text, {
-                permanent: true,
-                direction: 'top',
-                offset: [0, -10]
-              })
-              .openTooltip();
+              .bindPopup(m.text);
           });
         }
       });
     });
   </script>
-
 
 </body>
 
