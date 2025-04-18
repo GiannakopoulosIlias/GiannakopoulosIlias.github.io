@@ -1528,25 +1528,3 @@ section,
   overflow: hidden;
 
 
-/* ==== Hero swipe slider fixes ==== */
-
-/* 1. Remove the dark slide background */
-#hero.swiper-container .swiper-slide {
-  background: none !important;
-}
-
-/* 2. Vertically center the original hero text */
-#hero.swiper-container .swiper-slide:first-child .container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* 3. Always show the map title on slide 2 */
-#hero.swiper-container .swiper-slide:nth-child(2) .map-title-overlay {
-  display: block !important;
-  pointer-events: none;
-  z-index: 999;
-}
-
