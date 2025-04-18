@@ -108,9 +108,18 @@
 
       <!-- Map + title -->
       <div id="hero-map" style="opacity: 0; pointer-events: none; transition: opacity 1s ease; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-        <div id="world-map" style="width: 100%; height: 100%;"></div>
-        <div class="map-title-overlay" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
-            color: white; font-size: 2rem; z-index: 2; text-shadow: 1px 1px 5px black; display: none;">
+        <div class="map-title-overlay" style="
+          position: absolute;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: white;
+          font-size: 2rem;
+          z-index: 1000;
+          text-shadow: 1px 1px 5px black;
+          display: block;
+          opacity: 1;
+        ">
           Where I have traveled
         </div>
       </div>
@@ -710,16 +719,53 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const heroMap = document.getElementById("hero-map");
-      const mapTitle = document.querySelector(".map-title-overlay");
-      let mapInitialized = false;
+      const heroImage = document.querySelector(".cover-img");
   
+      let startX = 0;
+      let endX = 0;
+      let isMapVisible = false;
+  
+      function showMap() {
+        heroMap.style.opacity = 1;
+        heroMap.style.pointerEvents = "auto";
+        isMapVisible = true;
+      }
+  
+      function showHeroImage() {
+        heroMap.style.opacity = 0;
+        heroMap.style.pointerEvents = "none";
+        isMapVisible = false;
+      }
+  
+      function handleSwipe() {
+        const deltaX = endX - startX;
+        if (Math.abs(deltaX) > 50) {
+          if (deltaX < 0) {
+            // Swiped left → show map
+            showMap();
+          } else {
+            // Swiped right → show image
+            showHeroImage();
+          }
+        }
+      }
+  
+      // Mouse
+      document.addEventListener("mousedown", e => { startX = e.clientX; });
+      document.addEventListener("mouseup", e => { endX = e.clientX; handleSwipe(); });
+  
+      // Touch
+      document.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
+      document.addEventListener("touchend", e => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+      });
+  
+      // Leaflet init on first map reveal
+      let mapInitialized = false;
       function initMap() {
         if (mapInitialized) return;
         mapInitialized = true;
-        console.log("Initializing map...");
-  
-        heroMap.style.opacity = "1";
-        heroMap.style.pointerEvents = "auto";
   
         const map = L.map("world-map", {
           center: [20, 0],
@@ -731,47 +777,31 @@
         });
   
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 8
+          maxZoom: 8,
         }).addTo(map);
   
         const markers = [
           { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022" },
           { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
-          { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
+          { lat: 37.9838, lng: 23.7275, text: "Home in Athens" },
         ];
   
         markers.forEach((m) => {
           const marker = L.marker([m.lat, m.lng])
             .addTo(map)
             .bindTooltip(m.text);
-          if (m.link) marker.on("click", () => (window.location.href = m.link));
         });
-  
-        // Show "Places I have been" briefly
-        mapTitle.style.display = "block";
-        mapTitle.style.opacity = 0;
-        mapTitle.style.transition = "opacity 1s ease";
-  
-        setTimeout(() => {
-          mapTitle.style.opacity = 1;
-        }, 300);
-  
-        setTimeout(() => {
-          mapTitle.style.opacity = 0;
-        }, 3000);
       }
   
-      // Trigger when user scrolls past 100px
-      setTimeout(() => {
-        window.addEventListener("scroll", function () {
-          const scrollY = window.scrollY || window.pageYOffset;
-          if (scrollY > 100) {
-            initMap();
-          }
-        });
-      }, 200); // delay ensures layout is loaded
+      // Initialize map only once, when revealed
+      const observer = new MutationObserver(() => {
+        if (isMapVisible) initMap();
+      });
+  
+      observer.observe(heroMap, { attributes: true, attributeFilter: ["style"] });
     });
   </script>
+
 
 </body>
 
