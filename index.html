@@ -681,6 +681,16 @@
   <script src="./assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+  <!-- Main JS File -->
+  <script src="./assets/js/main.js"></script>
+  <!-- For hovering -->
+  <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+
 </body>
 
 </html>
