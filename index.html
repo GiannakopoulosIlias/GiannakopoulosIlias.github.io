@@ -26,6 +26,9 @@
 
   <!-- Main CSS File -->
   <link href="./assets/css/main.css" rel="stylesheet">
+  
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -691,6 +694,63 @@
     })
   </script>
 
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Your custom interactive map and drag logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Initialize map
+      const map = L.map('world-map').setView([20, 0], 2);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18
+      }).addTo(map);
+  
+      // Modular pin function
+      function addMapPin(lat, lng, tooltipText, clickTarget = null) {
+        const marker = L.marker([lat, lng]).addTo(map);
+        marker.bindTooltip(tooltipText);
+        if (clickTarget) marker.on('click', () => window.location.href = clickTarget);
+      }
+  
+      // Example pins
+      addMapPin(48.8566, 2.3522, "Conference in Paris, 2022");
+      addMapPin(40.7128, -74.0060, "Postdoc at NYU, NYC");
+  
+      // Make the hero image draggable
+      const coverImg = document.querySelector(".cover-img");
+      let isDragging = false, startX = 0, startY = 0, offsetX = 0, offsetY = 0;
+  
+      coverImg.style.position = "absolute";
+      coverImg.style.top = 0;
+      coverImg.style.left = 0;
+      coverImg.style.zIndex = 2;
+      coverImg.style.width = "100%";
+      coverImg.style.height = "100%";
+      coverImg.style.objectFit = "cover";
+      coverImg.style.cursor = "grab";
+  
+      coverImg.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        startX = e.clientX - offsetX;
+        startY = e.clientY - offsetY;
+        coverImg.style.cursor = "grabbing";
+      });
+  
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+        coverImg.style.cursor = "grab";
+      });
+  
+      document.addEventListener("mousemove", function (e) {
+        if (!isDragging) return;
+        offsetX = e.clientX - startX;
+        offsetY = e.clientY - startY;
+        coverImg.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+    });
+  </script>
+  
 </body>
 
 </html>
