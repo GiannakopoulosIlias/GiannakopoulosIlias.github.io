@@ -97,28 +97,30 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background" style="position: relative; overflow: hidden;">
-    
-      <!-- Draggable image on top -->
-      <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="cover-img">
-    
-      <!-- Hero text container -->
-      <div class="container" data-aos="fade-up" data-aos-delay="100" style="position: relative; z-index: 3;">
-        <h2></h2>
-        <p><strong>Hello!</strong></p>
-        <p>
-          I am 
-          <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span>
-          <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
-        </p>
+
+      <!-- Initial hero content -->
+      <div id="hero-initial" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3;">
+        <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="cover-img" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+        
+        <div class="container" data-aos="fade-up" data-aos-delay="100" style="position: relative; z-index: 4;">
+          <h2></h2>
+          <p><strong>Hello!</strong></p>
+          <p>
+            I am 
+            <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span>
+            <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
+          </p>
+          <button id="reveal-map" style="margin-top: 2rem;" class="btn btn-light">Show Map</button>
+        </div>
       </div>
     
-      <!-- Map underneath -->
-      <div id="world-map" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
-    
-      <!-- Map title overlay -->
-      <div class="map-title-overlay" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
-          color: white; font-size: 2rem; z-index: 2; text-shadow: 1px 1px 5px black;">
-        Places I have been
+      <!-- Map + title -->
+      <div id="hero-map" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <div id="world-map" style="width: 100%; height: 100%;"></div>
+        <div class="map-title-overlay" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+            color: white; font-size: 2rem; z-index: 2; text-shadow: 1px 1px 5px black;">
+          Places I have been
+        </div>
       </div>
     
     </section><!-- /Hero Section -->
@@ -715,58 +717,39 @@
   
   <!-- Your custom interactive map and drag logic -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Initialize map
-      const map = L.map('world-map').setView([20, 0], 2);
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("reveal-map");
+    const heroInitial = document.getElementById("hero-initial");
+    const heroMap = document.getElementById("hero-map");
+  
+    btn.addEventListener("click", function () {
+      heroInitial.style.display = "none";
+      heroMap.style.display = "block";
+  
+      const map = L.map('world-map', {
+        center: [20, 0],
+        zoom: 2,
+        zoomControl: true
+      });
+  
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18
+        maxZoom: 8
       }).addTo(map);
   
-      // Modular pin function
-      function addMapPin(lat, lng, tooltipText, clickTarget = null) {
-        const marker = L.marker([lat, lng]).addTo(map);
-        marker.bindTooltip(tooltipText);
-        if (clickTarget) marker.on('click', () => window.location.href = clickTarget);
-      }
+      const markers = [
+        { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022", link: "#https://giannakopoulosilias.github.io/travel.html" },
+        { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
+        { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
+      ];
   
-      // Example pins
-      addMapPin(48.8566, 2.3522, "Conference in Paris, 2022");
-      addMapPin(40.7128, -74.0060, "Postdoc at NYU, NYC");
-  
-      // Make the hero image draggable
-      const coverImg = document.querySelector(".cover-img");
-      let isDragging = false, startX = 0, startY = 0, offsetX = 0, offsetY = 0;
-  
-      coverImg.style.position = "absolute";
-      coverImg.style.top = 0;
-      coverImg.style.left = 0;
-      coverImg.style.zIndex = 2;
-      coverImg.style.width = "100%";
-      coverImg.style.height = "100%";
-      coverImg.style.objectFit = "cover";
-      coverImg.style.cursor = "grab";
-  
-      coverImg.addEventListener("mousedown", function (e) {
-        isDragging = true;
-        startX = e.clientX - offsetX;
-        startY = e.clientY - offsetY;
-        coverImg.style.cursor = "grabbing";
-      });
-  
-      document.addEventListener("mouseup", () => {
-        isDragging = false;
-        coverImg.style.cursor = "grab";
-      });
-  
-      document.addEventListener("mousemove", function (e) {
-        if (!isDragging) return;
-        offsetX = e.clientX - startX;
-        offsetY = e.clientY - startY;
-        coverImg.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      markers.forEach(m => {
+        const marker = L.marker([m.lat, m.lng]).addTo(map).bindTooltip(m.text);
+        if (m.link) marker.on('click', () => window.location.href = m.link);
       });
     });
+  });
   </script>
-  
+
 </body>
 
 </html>
