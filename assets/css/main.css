@@ -1526,3 +1526,9 @@ section,
   padding-bottom: 40px;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+/* Remove default slide background */
+#hero.swiper-container .swiper-slide {
+  background: none !important;
+}
