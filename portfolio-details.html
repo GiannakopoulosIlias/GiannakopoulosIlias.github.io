@@ -109,9 +109,78 @@
     </div><!-- End Page Title -->
 
     <!-- Portfolio Details Section -->
-    <section id="computational_electromagnetics" class="computational electromagnetics section">
-    Coming Soon
-  
+    <section id="computational_electromagnetics" class="section light-background">
+      <div class="container" data-aos="fade-up">
+        <!-- Section Title -->
+        <div class="section-title">
+          <h2>Computational Electromagnetics</h2>
+          <p>An overview of my work on RF‑coil modeling and integral‑equation solvers.</p>
+        </div>
+    
+        <!-- Intro Text -->
+        <div class="row">
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              Computational electromagnetics lies at the heart of modern MRI coil design.
+              My software implements wire, surface and volume integral‐equation methods
+              accelerated by tensor decompositions and fast solvers. Below are a few illustrative
+              snapshots from recent projects.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Text + Figure Pair #1 -->
+        <div class="row gy-4 align-items-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-6">
+            <h3>Wire‐Volume Solver Performance</h3>
+            <p>
+              We benchmarked our VIE solver on 64×64×64 grids, achieving a 10× speedup
+              over the standard MoM approach while preserving <em>S‑parameter</em> accuracy.
+            </p>
+            <ul>
+              <li>Tensor‐train compression of interaction matrices</li>
+              <li>Adaptive cross approximation for near‐field kernels</li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <a href="./assets/img/figures/vie-benchmark.png" class="glightbox">
+              <img src="./assets/img/figures/vie-benchmark-thumb.png"
+                   class="img-fluid rounded"
+                   alt="Benchmark plot">
+            </a>
+          </div>
+        </div>
+    
+        <!-- Text + Figure Pair #2 -->
+        <div class="row gy-4 align-items-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-6 order-lg-2">
+            <h3>Surface‐Integral Field Maps</h3>
+            <p>
+              Simulated B<sub>1</sub><sup>+</sup> maps for a head‐sized phantom
+              at 7 T demonstrate the characteristic interference patterns.
+            </p>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <a href="./assets/img/figures/b1plus-map.png" class="glightbox">
+              <img src="./assets/img/figures/b1plus-map-thumb.png"
+                   class="img-fluid rounded"
+                   alt="B1+ field map">
+            </a>
+          </div>
+        </div>
+    
+        <!-- Conclusion or Links -->
+        <div class="row" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-12 text-center">
+            <p>
+              <a href="https://github.com/GiannakopoulosIlias/vie-solver"
+                 class="btn btn-primary">
+                View Code on GitHub
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- /Portfolio Details Section -->
 
