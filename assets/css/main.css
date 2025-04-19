@@ -1530,61 +1530,66 @@ section,
 
 /* HERO SECTION */
 /* ———————————————————————————————————————————————————————————
-   Hero slider as full‑screen swiper
+   Hero‑slider styling (clone of Traveling slider method)
 ——————————————————————————————————————————————————————————— */
 
-/* reset any section padding/margins */
-#hero.section.dark-background { padding: 0; margin: 0; }
+/* nuke default hero padding/margin */
+#hero.section.dark-background {
+  padding: 0;
+  margin: 0;
+}
 
-/* force #hero to fill the viewport */
+/* force hero to viewport height */
 #hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
-/* position swiper absolutely inside #hero */
-#hero .init-swiper {
+/* absolutely fill the hero with swiper */
+#hero .hero-slider.init-swiper {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
 
-/* make wrapper & slides stretch full height */
+/* wrapper and slides full height */
 #hero .swiper-wrapper,
 #hero .swiper-slide {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* Slide 1 image cover‑scale */
-#hero .hero-img {
+/* Slide 1: cover‑scale the image */
+.hero-slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* center your greeting text over slide 1 */
+/* Slide 1 text overlay */
 #hero .slide-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   z-index: 10;
+  text-align: center;
   color: #fff;
 }
 
-/* Slide 2 map full‑size */
-#hero #world-map {
+/* Slide 2: full‑size map container */
+.hero-map {
   width: 100%;
   height: 100%;
 }
 
-/* overlay caption on the map */
+/* Slide 2 caption */
 #hero .map-caption {
   position: absolute;
   top: 1rem;
