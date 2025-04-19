@@ -1528,33 +1528,33 @@ section,
   overflow: hidden;
 }
 
-/* make the hero slider fill the viewport */
+/* HERO SECTION */
+/* 1. Force the hero to be exactly the height of the viewport */
 #hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
+  height: 100vh !important;
   overflow: hidden;
 }
 
-/* Swiper container & slides full‑height */
-#hero .swiper {
+/* 2. Make the swiper container & slides fill that 100vh */
+#hero .init-swiper {
   width: 100%;
   height: 100%;
 }
-#hero .swiper-slide {
-  position: relative;
+#hero .init-swiper .swiper-wrapper,
+#hero .init-swiper .swiper-slide {
   width: 100%;
   height: 100%;
 }
 
-/* Slide 1: cover image */
+/* 3. Cover‑scale your image so no black bars appear */
 #hero .hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-/* center your text over slide 1 */
+
+/* 4. Keep your “Hello…” text centered on the first slide */
 #hero .slide-text {
   position: absolute;
   top: 50%;
@@ -1564,13 +1564,11 @@ section,
   color: #fff;
 }
 
-/* Slide 2: map full‑size */
+/* 5. Map + caption styling */
 #hero #world-map {
   width: 100%;
   height: 100%;
 }
-
-/* “Places I have been” caption */
 #hero .map-caption {
   position: absolute;
   top: 1rem;
@@ -1581,4 +1579,3 @@ section,
   color: #fff;
   text-shadow: 0 0 4px rgba(0,0,0,0.6);
 }
-
