@@ -103,30 +103,66 @@
 
   <main class="main">
 
+    <!--
     <section id="hero" class="hero section dark-background">
-        <div class="swiper init-swiper">
-          <div class="swiper-wrapper">
-            <!-- Slide 1: your existing image + text -->
+      <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <h2></h2>
+      <p><strong>Hello!</strong></p>
+      <p>I am <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span>
+        <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
+        <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+      </div>
+    </section> -->
+
+      <!-- Hero Section as a Swiper (JSON‑config style) -->
+      <section id="hero" class="hero section dark-background">
+        <div class="hero-slider swiper init-swiper">
+          <!-- 1) Swiper configuration, read by your main.js just like in traveling.html -->
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": false,
+              "speed": 600,
+              "slidesPerView": 1,
+              "autoplay": false,
+              "simulateTouch": true,
+              "grabCursor": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true,
+                "dynamicBullets": false
+              }
+            }
+          </script>
+          <!-- 2) Slides wrapper -->
+          <div class="swiper-wrapper align-items-center">
+            <!-- Slide 1: your “Hello!” image + text -->
             <div class="swiper-slide">
-              <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-              <div class="container" data-aos="fade-up" data-aos-delay="100">
+              <img src="./assets/img/hero-bg.jpg" alt="Hero background" class="hero-img">
+              <div class="container slide-text" data-aos="fade-up" data-aos-delay="100">
                 <h2></h2>
                 <p><strong>Hello!</strong></p>
-                <p>I am <span class="typed" data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">Ilias!</span>
-                  <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
-                  <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+                <p>
+                  I am&nbsp;
+                  <span class="typed"
+                        data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">
+                    Ilias!
+                  </span>
+                  <span class="typed-cursor" aria-hidden="true"></span>
+                </p>
               </div>
             </div>
             <!-- Slide 2: the map + caption -->
-            <div class="swiper-slide position-relative">
+            <div class="swiper-slide">
               <div class="map-caption">Places I have been</div>
-              <div id="world-map" style="width:100%; height:100%;"></div>
+              <div id="world-map"></div>
             </div>
-          </div>       
-        <!-- pagination bullets -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
+          </div><!-- /.swiper-wrapper -->
+          <!-- 3) Pagination bullets -->
+          <div class="swiper-pagination"></div>
+        </div><!-- /.hero-slider -->
+      </section><!-- /#hero -->
     
     <!-- About Section -->
     <section id="about" class="about section">
