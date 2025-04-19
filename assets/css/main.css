@@ -1600,3 +1600,24 @@ section,
   color: #fff;
   text-shadow: 0 0 4px rgba(0,0,0,0.6);
 }
+
+/* ———————————————————————————————————————————————————————————
+   Disable the iPortfolio template’s default Hero rules
+——————————————————————————————————————————————————————————— */
+#hero.section.dark-background {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#hero::before {
+  /* remove the white overlay mask */
+  content: none !important;
+}
+#hero img {
+  /* cancel the built‑in absolute/cover styles on any <img> in #hero */
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: none !important;
+  z-index: auto !important;
+}
