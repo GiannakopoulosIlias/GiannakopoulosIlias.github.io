@@ -1528,23 +1528,57 @@ section,
   overflow: hidden;
 }
 
-/* Hero slider image sizing */
-#hero .hero-img {
+/* make the hero slider fill the viewport */
+#hero {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* “Places I have been” overlay */
+/* Swiper container & slides full‑height */
+#hero .swiper {
+  width: 100%;
+  height: 100%;
+}
+#hero .swiper-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Slide 1: cover image */
+#hero .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* center your text over slide 1 */
+#hero .slide-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: #fff;
+}
+
+/* Slide 2: map full‑size */
+#hero #world-map {
+  width: 100%;
+  height: 100%;
+}
+
+/* “Places I have been” caption */
 #hero .map-caption {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  z-index: 1000;
-  color: #fff;
+  z-index: 10;
   font-size: 1.5rem;
   font-weight: 500;
+  color: #fff;
   text-shadow: 0 0 4px rgba(0,0,0,0.6);
 }
-
 
