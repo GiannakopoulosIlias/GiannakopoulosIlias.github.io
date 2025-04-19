@@ -115,54 +115,63 @@
       </div>
     </section> -->
 
-      <!-- Hero Section as a Swiper (JSON‑config style) -->
-      <section id="hero" class="hero section dark-background">
-        <div class="hero-slider swiper init-swiper">
-          <!-- 1) Swiper configuration, read by your main.js just like in traveling.html -->
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": false,
-              "speed": 600,
-              "slidesPerView": 1,
-              "autoplay": false,
-              "simulateTouch": true,
-              "grabCursor": true,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true,
-                "dynamicBullets": false
-              }
+    <!-- ==============================================
+    Hero Section (JSON‑config Swiper like Traveling)
+    =============================================== -->
+    <section id="hero" class="hero section dark-background">
+  
+      <div class="hero-slider swiper init-swiper">
+  
+        <!-- 1) exactly the same JSON config pattern -->
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": false,
+            "speed": 600,
+            "slidesPerView": 1,
+            "simulateTouch": true,
+            "grabCursor": true,
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
             }
-          </script>
-          <!-- 2) Slides wrapper -->
-          <div class="swiper-wrapper align-items-center">
-            <!-- Slide 1: your “Hello!” image + text -->
-            <div class="swiper-slide">
-              <img src="./assets/img/hero-bg.jpg" alt="Hero background" class="hero-img">
-              <div class="container slide-text" data-aos="fade-up" data-aos-delay="100">
-                <h2></h2>
-                <p><strong>Hello!</strong></p>
-                <p>
-                  I am&nbsp;
-                  <span class="typed"
-                        data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">
-                    Ilias!
-                  </span>
-                  <span class="typed-cursor" aria-hidden="true"></span>
-                </p>
-              </div>
+          }
+        </script>
+  
+        <!-- 2) wrapper + slides -->
+        <div class="swiper-wrapper align-items-center">
+  
+          <!-- Slide 1: full‑screen cover image + overlay text -->
+          <div class="swiper-slide">
+            <img src="./assets/img/hero-bg.jpg" alt="Hero background" class="hero-slide-img">
+  
+            <div class="slide-text" data-aos="fade-up" data-aos-delay="100">
+              <h2></h2>
+              <p><strong>Hello!</strong></p>
+              <p>
+                I am&nbsp;
+                <span class="typed"
+                      data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler, Ηλίας!, a Scientist, an Engineer, a Traveler">
+                  Ilias!
+                </span>
+                <span class="typed-cursor" aria-hidden="true"></span>
+              </p>
             </div>
-            <!-- Slide 2: the map + caption -->
-            <div class="swiper-slide">
-              <div class="map-caption">Places I have been</div>
-              <div id="world-map"></div>
-            </div>
-          </div><!-- /.swiper-wrapper -->
-          <!-- 3) Pagination bullets -->
-          <div class="swiper-pagination"></div>
-        </div><!-- /.hero-slider -->
-      </section><!-- /#hero -->
+          </div>
+  
+          <!-- Slide 2: leaflet map + “Places I have been” -->
+          <div class="swiper-slide">
+            <div id="world-map" class="hero-map"></div>
+            <div class="map-caption">Places I have been</div>
+          </div>
+  
+        </div><!-- /.swiper-wrapper -->
+  
+        <!-- 3) pagination bullets -->
+        <div class="swiper-pagination"></div>
+      </div><!-- /.hero-slider -->
+  
+    </section><!-- /#hero -->
     
     <!-- About Section -->
     <section id="about" class="about section">
@@ -749,30 +758,32 @@
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
   </script>
-
-  <!-- Leaflet JS -->
+  
+  <!-- Leaflet JS (for the map) -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Swiper JS (only once!) -->
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const swiper = new Swiper("#hero .init-swiper", {
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1) create your hero slider
+      const heroSwiper = new Swiper("#hero .hero-slider", {
         speed: 600,
-        loop: false,               // you can change to true if you want infinite looping
         slidesPerView: 1,
-        simulateTouch: true,       // enable desktop mouse dragging
-        grabCursor: true,          // show “grab” cursor on hover
+        simulateTouch: true,   // enable click‑and‑drag
+        grabCursor: true,      // show the “grab” cursor
         pagination: {
-          el: "#hero .swiper-pagination",  // target the pagination inside your hero
-          clickable: true,
-        },
+          el: "#hero .swiper-pagination",  // your pagination bullets
+          clickable: true
+        }
       });
     
+      // 2) when you land on slide 2, spin up Leaflet exactly once
       let mapInitialized = false;
-      swiper.on("slideChange", function () {
-        if (swiper.activeIndex === 1 && !mapInitialized) {
+      heroSwiper.on("slideChange", () => {
+        if (heroSwiper.activeIndex === 1 && !mapInitialized) {
           mapInitialized = true;
+    
           const map = L.map("world-map", {
             center: [20, 0],
             zoom: 2,
@@ -781,16 +792,22 @@
             scrollWheelZoom: true,
             dragging: true
           });
-          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 8 }).addTo(map);
+    
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 8
+          }).addTo(map);
+    
           [
             { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022" },
             { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
             { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
-          ].forEach(m => L.marker([m.lat, m.lng]).addTo(map).bindPopup(m.text));
+          ].forEach(({lat,lng,text}) =>
+            L.marker([lat, lng]).addTo(map).bindPopup(text)
+          );
         }
       });
     });
-  </script>
+    </script>
 
 </body>
 
