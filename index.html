@@ -26,14 +26,6 @@
 
   <!-- Main CSS File -->
   <link href="./assets/css/main.css" rel="stylesheet">
-
-  <!-- Swiper CSS (just one copy — local or CDN) -->
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
   
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -100,7 +92,6 @@
 
   <main class="main">
 
-    <!--
     <section id="hero" class="hero section dark-background">
       <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -110,59 +101,6 @@
         <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
         <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
-    </section> -->
-
-    <!-- ==============================================
-    Hero Section (JSON‑config Swiper like Traveling)
-    =============================================== -->
-    <section id="hero" class="section dark-background">
-      <div class="swiper init-swiper hero-slider">
-    
-        <!-- JSON config isn’t strictly needed if you’re going manual; you can delete this entire <script> 
-             and just use the init code below instead. But if you keep it, make sure it matches exactly: -->
-        <script type="application/json" class="swiper-config">
-          {
-            "loop": false,
-            "speed": 600,
-            "slidesPerView": 1,
-            "simulateTouch": true,
-            "grabCursor": true,
-            "pagination": {
-              "el": ".swiper-pagination",
-              "clickable": true
-            }
-          }
-        </script>
-    
-        <div class="swiper-wrapper">
-    
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="./assets/img/hero-bg.jpg" alt="Hero background" class="hero-slide-img">
-            <div class="slide-text">
-              <h2></h2>
-              <p><strong>Hello!</strong></p>
-              <p>
-                I am&nbsp;
-                <span class="typed"
-                      data-typed-items="Ilias!, a Scientist, an Engineer, a Traveler">
-                  Ilias!
-                </span>
-                <span class="typed-cursor" aria-hidden="true"></span>
-              </p>
-            </div>
-          </div>
-    
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <div id="world-map" class="hero-map"></div>
-            <div class="map-caption">Places I have been</div>
-          </div>
-    
-        </div><!-- /.swiper-wrapper -->
-    
-        <div class="swiper-pagination"></div>
-      </div><!-- /.init-swiper -->
     </section>
     
     <!-- About Section -->
