@@ -1526,5 +1526,25 @@ section,
   padding-bottom: 40px;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+/* Hero slider image sizing */
+#hero .hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* “Places I have been” overlay */
+#hero .map-caption {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-shadow: 0 0 4px rgba(0,0,0,0.6);
+}
 
 
