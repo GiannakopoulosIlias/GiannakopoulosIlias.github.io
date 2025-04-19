@@ -723,7 +723,14 @@
     document.addEventListener("DOMContentLoaded", function () {
       const swiper = new Swiper("#hero .init-swiper", {
         speed: 600,
-        pagination: { el: ".swiper-pagination", clickable: true },
+        loop: false,               // you can change to true if you want infinite looping
+        slidesPerView: 1,
+        simulateTouch: true,       // enable desktop mouse dragging
+        grabCursor: true,          // show “grab” cursor on hover
+        pagination: {
+          el: "#hero .swiper-pagination",  // target the pagination inside your hero
+          clickable: true,
+        },
       });
     
       let mapInitialized = false;
