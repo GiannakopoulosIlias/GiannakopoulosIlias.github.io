@@ -1489,13 +1489,13 @@ section,
 }
 
 /* Background colors for different sections */
-.about { background-color: #fffbfe; }  /* Very Pale Mint Green */
-.stats { background-color: #fffbfe; }  /* Soft Pastel Green */
-.portfolio { background-color: #fffbfe; }  /* Light Lime Green */
-.teaching { background-color: #fffbfe; }  /* Gentle Spring Green */
-.curriculum_vitae { background-color: #fffbfe; }  /* Soft Meadow Green */
-.interests { background-color: #fffbfe; }  /* Fresh Apple Green */
-.contact { background-color: #fffbfe; }  /* Calming Botanical Green */
+/*.about { background-color: #fffbfe; }   Very Pale Mint Green */
+/*.stats { background-color: #fffbfe; }   Soft Pastel Green */
+/*.portfolio { background-color: #fffbfe; }   Light Lime Green */
+/*.teaching { background-color: #fffbfe; }   Gentle Spring Green */
+/*.curriculum_vitae { background-color: #fffbfe; }   Soft Meadow Green */
+/*.interests { background-color: #fffbfe; }   Fresh Apple Green */
+/*.contact { background-color: #fffbfe; }   Calming Botanical Green */
 
 .tooltip-inner {
   max-width: 600px !important;   /* wider than default */
