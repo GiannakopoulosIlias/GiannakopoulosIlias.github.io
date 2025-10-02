@@ -562,42 +562,6 @@
         </div>
       </div>
 
-      <!--
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="card teaching-card text-center">
-          <div class="card-body">
-            <img src="./assets/img/logos/Electrodynamics_style.png" alt="Numerical Linear Algebra" class="course-logo">
-            <h4 class="card-title">Electromagnetism</h4>
-            <p class="card-text">
-              <strong>Electromagnetism</strong> captured my interest as an undergraduate student at the Aristotle University of Thessaloniki.
-              It is a fundamental force that governs nearly every aspect of our existence, from the behavior of atoms
-              to the vast structure of the cosmos. <strong>Computational electromagnetism</strong> intersects with
-              numerical mathematics and enables us to simulate and predict the electromagnetic phenomena of complex settings.
-              For these reasons, I am passionate about teaching courses that explore <em>computational techniques</em>
-              for <em>antennas</em> and <em>RF coil design</em>, as well as novel <em>numerical methods for solving Maxwell’s equations</em>.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="card teaching-card text-center">
-          <div class="card-body">
-            <img src="./assets/img/logos/NLA_style.png" alt="Numerical Linear Algebra" class="course-logo">
-            <h4 class="card-title">Numerical Linear Algebra</h4>
-            <p class="card-text">
-              <strong>Numerical linear algebra</strong> is at the core of solving large-scale engineering problems,
-              providing the foundation for simulations of physical systems up to modern machine learning training strategies.
-              My interest in the field stems from its elegant balance between theory and computational efficiency,
-              particularly in areas such as <em>tensor decompositions</em>, which enable dimensionality reduction
-              and efficient representation of high-dimensional data. I am excited to teach courses that explore the mathematical foundations of numerical linear algebra,
-              practical implementations, and impact on modern computational science.
-            </p>
-          </div>
-        </div>
-      </div>
-      -->
-
     </section>
     <!-- /Teaching Section -->
 
@@ -844,7 +808,26 @@
     });
   </script>
 
-
+  <!-- Vanta.js Background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.triangles.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      VANTA.TRiANGLES({
+        el: "#background",
+        mouseControls: true,
+        touchControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x6a0dad,          // main triangle color (purple)
+        color2: 0x000000,         // secondary triangle color
+        backgroundColor: 0xffffff // match your site’s light theme
+      })
+    });
+  </script>
+  
 </body>
 
 </html>
