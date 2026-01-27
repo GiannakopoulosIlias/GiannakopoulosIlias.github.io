@@ -1191,13 +1191,13 @@ section,
 
 /* ---- Portfolio Grid Layout (2 Panels Per Row) ---- */
 .portfolio .portfolio-item {
-  width: 50%;  /* 2 items per row */
+  width: 25%;  /* 2 items per row */
   padding: 10px;
 }
 
 @media (max-width: 992px) {
   .portfolio .portfolio-item {
-    width: 50%; /* 2 items per row on medium screens */
+    width: 25%; /* 2 items per row on medium screens */
   }
 }
 
