@@ -1518,15 +1518,13 @@ section,
 
 /* Make Portfolio Section Fit One Screen */
 .portfolio {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* vertical centering */
+  /* min-height: 100vh; ❌ remove */
+  /* display: flex; ❌ remove */
+  /* justify-content: center; ❌ remove */
   padding-top: 40px;
   padding-bottom: 40px;
-  box-sizing: border-box;
-  overflow: hidden;
 }
+
 
 /*--------------------------------------------------------------
 # Animated Background
