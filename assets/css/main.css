@@ -1,4 +1,33 @@
-/**
+
+
+/* ---- Learn More Button ---- */
+.portfolio .portfolio-content .portfolio-info .learn-more {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+.portfolio .portfolio-content .portfolio-info .learn-more:hover {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-content .portfolio-info .learn-more i {
+  font-size: 18px;
+}
+
+/* ---- Hide Title on Hover ---- */
+.portfolio .portfolio-content:hover .portfolio-title {
+  opacity: 0;
+}
+
+/* ---- Make Learn More Visible on Hover ---- */
+.portfolio .portfolio-content:hover .portfolio-info {
+  opacity: 1;
+}/**
 * Template Name: iPortfolio
 * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
 * Updated: Jun 29 2024 with Bootstrap v5.3.3
@@ -659,54 +688,32 @@ section,
 /* ================================
    Research cards (Teaching-style)
 ================================ */
+
 .research-card {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 }
 
 .research-card:hover {
   transform: translateY(-5px);
 }
 
-/* Image wrapper */
-.research-image-wrapper {
-  position: relative;
-  overflow: hidden;
+/* Icon-style image (like Teaching) */
+.research-icon {
+  width: 110px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 6px;
 }
 
-.research-image-wrapper img {
-  width: 100%;
-  transition: transform 0.3s ease-in-out;
-}
-
-.research-card:hover img {
-  transform: scale(1.05);
-}
-
-/* Hover overlay */
-.research-image-wrapper .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.research-card:hover .portfolio-info {
-  opacity: 1;
-}
-
-/* Title styling */
+/* Title */
 .research-card .card-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 0;
+  line-height: 1.35;
 }
 
 /*--------------------------------------------------------------
