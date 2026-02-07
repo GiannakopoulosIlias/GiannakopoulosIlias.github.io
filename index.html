@@ -68,7 +68,6 @@
       </a>
     </div>
 
-
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
@@ -297,8 +296,7 @@
     
     </section>
     <!-- /Teaching Section -->
-
-
+    
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -404,71 +402,6 @@
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
-  </script>
-  
-  <!-- Leaflet JS (for the map) -->
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // 1) initialize Swiper manually
-      const heroSwiper = new Swiper("#hero .init-swiper", {
-        speed: 600,
-        slidesPerView: 1,
-        simulateTouch: true,  // enable click‑and‑drag on desktop
-        grabCursor: true,     // show the “hand” cursor
-        pagination: {
-          el: "#hero .swiper-pagination",
-          clickable: true
-        }
-      });
-  
-      // 2) when slide 2 appears, spin up Leaflet once
-      let mapInitialized = false;
-      heroSwiper.on("slideChange", () => {
-        if (heroSwiper.activeIndex === 1 && !mapInitialized) {
-          mapInitialized = true;
-          const map = L.map("world-map", {
-            center: [20, 0], zoom: 2,
-            zoomControl: false,
-            attributionControl: false,
-            scrollWheelZoom: true,
-            dragging: true
-          });
-          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            maxZoom: 8
-          }).addTo(map);
-          [
-            { lat: 48.8566, lng: 2.3522, text: "Conference in Paris, 2022" },
-            { lat: 40.7128, lng: -74.0060, text: "Postdoc at NYU, NYC" },
-            { lat: 37.9838, lng: 23.7275, text: "Home in Athens" }
-          ].forEach(({lat,lng,text}) =>
-            L.marker([lat, lng]).addTo(map).bindPopup(text)
-          );
-        }
-      });
-    });
-  </script>
-
-  <!-- Vanta.js Background -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.triangles.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      VANTA.TRiANGLES({
-        el: "#background",
-        mouseControls: true,
-        touchControls: true,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x6a0dad,
-        color2: 0x000000,
-        backgroundColor: 0xffffff
-      })
-    });
   </script>
   
 </body>
