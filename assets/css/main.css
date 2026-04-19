@@ -698,15 +698,13 @@ section,
   border-bottom: none;
 }
 
-.teaching-item .left {
-  line-height: 1.5;
-}
-
-.teaching-item .right {
-  white-space: nowrap;
-  font-size: 0.9em;
-  color: #666;
-  align-self: center;
+.teaching-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  align-items: start;
 }
 
 .role {
@@ -722,8 +720,17 @@ section,
   margin-top: 2px;
 }
 
+.teaching-item .right {
+  white-space: nowrap;
+  font-size: 0.9em;
+  color: #666;
+  align-self: start;
+}
+
 .teaching-item .right.with-offset {
-  padding-top: 1.8em;
+  margin-top: 3.05em;   /* tune this slightly if needed */
+  line-height: 1.8;
+  position: static;
 }
 
 /*--------------------------------------------------------------
