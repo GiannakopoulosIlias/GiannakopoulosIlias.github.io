@@ -702,10 +702,44 @@ section,
   margin-bottom: 2px;
 }
 
-.sub {
+.teaching-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.teaching-title {
+  min-width: 0;
+}
+
+.teaching-date {
+  color: #666;
+  font-size: 0.9em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-style: normal;
+}
+
+.teaching-meta {
   font-size: 0.95em;
   color: #666;
   margin-top: 2px;
+}
+
+.mentoring-group {
+  margin-top: 8px;
+}
+
+.mentoring-group:first-of-type {
+  margin-top: 4px;
+}
+
+.mentoring-label {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 2px;
 }
 
 .project-row {
@@ -727,8 +761,8 @@ section,
   color: #666;
   font-size: 0.9em;
   white-space: nowrap;
-  font-style: normal;
   flex-shrink: 0;
+  font-style: normal;
 }
 
 /*--------------------------------------------------------------
