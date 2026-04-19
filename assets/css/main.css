@@ -719,6 +719,10 @@ section,
   margin-top: 2px;
 }
 
+.project-title {
+  min-width: 0;
+}
+
 .project-date {
   color: #666;
   font-size: 0.9em;
