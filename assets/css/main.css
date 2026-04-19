@@ -702,18 +702,22 @@ section,
   margin-bottom: 2px;
 }
 
-.teaching-head {
+.entry-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 24px;
 }
 
-.teaching-title {
+.entry-row + .entry-row {
+  margin-top: 4px;
+}
+
+.entry-title {
   min-width: 0;
 }
 
-.teaching-date {
+.entry-date {
   color: #666;
   font-size: 0.9em;
   white-space: nowrap;
@@ -727,42 +731,20 @@ section,
   margin-top: 2px;
 }
 
-.mentoring-group {
-  margin-top: 8px;
-}
-
-.mentoring-group:first-of-type {
-  margin-top: 4px;
-}
-
-.mentoring-label {
+.group-label {
   display: block;
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 2px;
+  font-weight: 700;
+  color: #222;
+  margin-top: 8px;
+  margin-bottom: 4px;
 }
 
-.project-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-}
-
-.project-row + .project-row {
+.group-label:first-of-type {
   margin-top: 2px;
 }
 
-.project-title {
-  min-width: 0;
-}
-
-.project-date {
-  color: #666;
-  font-size: 0.9em;
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-style: normal;
+.group-block + .group-block {
+  margin-top: 10px;
 }
 
 /*--------------------------------------------------------------
