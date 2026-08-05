@@ -10,3 +10,71 @@
   <meta name="citation_pdf_url"
         content="https://iliasgiannakopoulos.com/assets/pdf/ilias_giannakopoulos_phd_thesis_2020.pdf">
 </head>
+
+<body style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 50px auto; padding: 0 24px; color: #222;">
+
+  <main>
+    <p><a href="./index.html">Back to homepage</a></p>
+
+    <h1>
+      Memory Compression of the Galerkin Volume Integral Equations and
+      Coil Modeling for the Electrical Property Mapping of Biological Tissue
+    </h1>
+
+    <p>
+      <strong>Ilias I. Giannakopoulos</strong><br>
+      Doctoral Thesis<br>
+      Skolkovo Institute of Science and Technology, 2020
+    </p>
+
+    <p>
+      <a href="./assets/pdf/ilias_giannakopoulos_phd_thesis_2020.pdf">
+        Download the full thesis (PDF)
+      </a>
+    </p>
+
+    <h2>Abstract</h2>
+
+    <p>
+      The scope of this doctoral dissertation is to study the interactions of electromagnetic (EM) waves and biological tissue
+      in the presence of a strong magnetic field, and demonstrate the utility of novel methods via their application to simulations
+      for the Magnetic Resonance Imaging (MRI) of realistic human head models. In problems related to MRI, the maximum use of the
+      single operating frequency allows the careful design and optimization of fast and robust algorithms of computational electromagnetics
+      (CEM), based on integral equations (IE). Specifically, surface integral equations (SIE) are employed to analyze the radio-frequency (RF)
+      transmit-receive coils of the magnetic resonance (MR) scanner, while volume integral equations (VIE) model the EM interactions of human
+      tissues with finite electrical properties (EP). The fast and accurate estimation of the interactions above is of paramount importance
+      since a poor design of an RF coil might lead to detrimental effects in the quality of the MR image and the safety of the patient, 
+      especially in modern ultra-high-field (UHF) scanners. 
+
+      Specifically, in the first part of this thesis, we present a method of memory footprint reduction for FFT-based, EM VIE formulations.
+      The arising Green's function tensors have low multilinear rank properties, which allows the employment of tensor decompositions (Tucker, 
+      Canonical decompositions, and Tensor Train) for their compression, thereby significantly reducing the required memory storage for numerical 
+      simulations. Consequently, the compressed components can fit inside a graphical processing unit (GPU) on which highly parallelized computations 
+      can vastly accelerate the iterative solution of the arising linear system. Besides, we provide a variety of novel and efficient matrix-vector 
+      product methods that maintain the linear complexity of the traditional element-wise product of FFT-based VIE and can provide up to an order of 
+      magnitude of acceleration. For the second part, we turn our interest to the non-invasive cross-sectional mapping of the electrical property (EP)
+      distributions of realistic human head models using MR measurements, and the recently introduced Global Maxwell Tomography (GMT). Previous work 
+      evaluated GMT using ideal radiofrequency (RF) excitations, while this dissertation aims to assess GMT's performance in simulation, using a 
+      realistic RF coil. The designed coil is a transmit-receive array with eight decoupled channels for 7 Tesla head imaging. We calculated the RF 
+      transmit field inside inhomogeneous head models for different RF shimming approaches, and used them as input for GMT to reconstruct brain EP. 
+      The coil tuning/decoupling remained relatively stable when the coil was load with different head models. The mean error in EP estimation changed
+      from 7.5% to 9.5% and from 4.84% to 7.2% for the relative permittivity and conductivity, respectively, when changing head models without re-tuning
+      the coil. When an SVD-based RF shimming algorithm is applied, in place of excitation with one coil channel at a time, we observed that the reconstruction
+      slightly improves. Despite errors in EP, the prediction of the RF transmit field, and the voxel-wise absorbed power have less than 0.5% mean error over
+      the entire head. Also, GMT could accurately detect a numerically inserted tumor. The results summarized above show that GMT can reliably reconstruct EP
+      in realistic simulated scenarios using a tailored 8-channel RF coil design at 7 Tesla, thus, enabling future in-vivo GMT experiments. The significance of
+      this work is that GMT could provide accurate estimations of tissue EP, which could be used as biomarkers and could enable patient-specific estimation of
+      RF power deposition, which is an unsolved problem for UHF MRI. Finally, there is a costly trade-off between accuracy and time footprint for GMT, and
+      regrettably, the reconstruction requires days to converge, especially for fine resolutions. Thus we investigate deep learning architectures that can
+      vastly accelerate the reconstruction and overcome such impasses. The proposed approach is to train a tensor-to-tensor convolutional neural network
+      that maps the MR measurements to the corresponding EP of tissue-mimicking phantoms. 
+
+      The novel RF coil designs can aid GMT to provide accurate estimations of tissue EP, which could be used as biomarkers and could enable patient-specific
+      estimation of RF power deposition, which is an unsolved problem for UHF MRI. Moreover, the novel accelerated through GPU programming, tensor
+      decomposition-based methods, will offer more precise and faster biomedical analysis. As a result, both contributions of this thesis could help to exploit
+      the full potential of UHF MRI.
+    </p>
+  </main>
+
+</body>
+</html>
