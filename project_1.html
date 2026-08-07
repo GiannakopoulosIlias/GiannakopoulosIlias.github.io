@@ -99,7 +99,12 @@
     <section class="section">
       <div class="container project-papers">
         <p class="project-intro" data-aos="fade-up">
-          My work develops fast, memory-friendly, and accurate computational methods for electromagnetic simulations and radiofrequency coil design in MRI. It combines tensor decompositions, volume-surface integral equation methods, ideal current patterns, wire modeling, and automatic circuit co-simulation.
+          One of my most noted contributions to MRI has been the development of rapid and accurate simulation tools 
+          based on the integral equation method that model the interactions between EM waves, RF coils, and biological tissue. 
+          To improve computational efficiency of such methods, I developed tensor decomposition-based techniques, enabling the simulations to run on a GPU, 
+          achieving faster processing times without sacrificing any numerical precision. Over the years, I expanded my methods to more realistic MRI setups through 
+          existing and novel numerical linear algebra algorithms. These methods allowed extremely fast and accurate MRI simulations that include RF coils, RF shields,
+          the scanner’s bore, and realistic anatomical models. 
         </p>
 
         <article class="project-paper" data-aos="fade-up">
@@ -109,15 +114,20 @@
                 <a href="./assets/img/Proj1_Fig1.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the tensor decomposition paper">
                   <img src="./assets/img/Proj1_Fig1.png" class="project-figure" alt="Visual representation of the Tucker plus CP tensor decomposition method">
                 </a>
-                <figcaption>Figure 1. Basic tensor decompositions used in the proposed compression method: (a) Tucker decomposition and (b) CP decomposition of a low multilinear-rank tensor.</figcaption>
+                <figcaption>Relative error of the absorbed power and transmit magnetic field between the Tucker-based decomposition approaches and the baseline method.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 project-paper-copy">
               <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2019</p>
               <h3>Memory Footprint Reduction for the FFT-Based Volume Integral Equation Method via Tensor Decompositions</h3>
               <p>
-                This work presents a method for reducing the memory footprint of FFT-based electromagnetic volume integral equation formulations. The arising Green's function tensors have low multilinear rank, which allows Tucker decomposition to be employed for their compression and greatly reduces the memory storage required for numerical simulations. The compressed components can therefore fit inside a graphical processing unit, where highly parallelized computations accelerate the iterative solution of the arising linear system. The work also provides efficient methods for the additional elementwise products required throughout the iterative solver while maintaining the linear complexity of the classic elementwise product. The approach is demonstrated with volume integral equation simulations for MRI of a human head, for which it provides an order-of-magnitude acceleration over standard techniques.
-              </p>
+                This work presents a method of memory footprint reduction for FFT-based electromagnetic volume integral equation (VIE) formulations. 
+                The arising Green's function tensors of VIE have low multilinear rank properties, which allows Tucker decomposition to be employed for their compression, 
+                thereby greatly reducing the required memory storage of the corresponding numerical simulations. Consequently, the compressed components are able to fit in
+                GPU on which highly parallelized computations can vastly accelerate the iterative solution of the arising linear system. 
+                We demonstrate the utility of our approach via its application to VIE simulations for the magnetic resonance imaging (MRI) of a human head. 
+                For these simulations, we report an order-of-magnitude acceleration over standard techniques.
+                </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2019.2930126" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
               </a>
@@ -132,7 +142,7 @@
                 <a href="./assets/img/Proj1_Fig2.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the volume-surface matrix compression paper">
                   <img src="./assets/img/Proj1_Fig2.png" class="project-figure" loading="lazy" alt="Maximum Tucker rank as a function of voxel resolution for multiple head and coil discretizations">
                 </a>
-                <figcaption>Figure 9. Maximum Tucker rank as a function of the voxel resolution of the volume integral equation domain. The maximum is calculated over all Tucker ranks obtained with HOSVD, with results shown for all investigated head and coil discretizations.</figcaption>
+                <figcaption> Maximum Tucker rank as a function of the voxel resolution for multiple coil-body MRI configurations.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 order-lg-1 project-paper-copy">
@@ -142,7 +152,14 @@
               </a>
               <h3>Compression of Volume-Surface Integral Equation Matrices via Tucker Decomposition for Magnetic Resonance Applications</h3>
               <p>
-                This work proposes a method for compressing the coupling matrix in volume-surface integral equation formulations used for electromagnetic analysis in MRI, where the coupling matrix models the interactions between the coil and the body. These interactions are represented as independent interactions between remote elements in three-dimensional tensor formats and subsequently decomposed with the Tucker model. The method can work in tandem with adaptive cross approximation to provide fast solutions of volume-surface integral equation problems. By making coupling matrices with otherwise prohibitive memory requirements manageable, the proposed compression enables the effective use of graphical processing units to accelerate the associated matrix-vector products. This is critical for performing numerical MRI simulations at clinical voxel resolutions within a feasible computation time.
+                This work proposes a method for the compression of the coupling matrix in surface-volume integral
+                equation (SVIE) formulations. SVIE methods are used for electromagnetic analysis in MRI applications, 
+                for which the coupling matrix models the interactions between the coil and the body. We showed that these effects
+                can be represented as independent interactions between remote elements in 3D tensor formats and subsequently decomposed
+                with the Tucker model. We demonstrated that our compression approach can enable the use of VSIE matrices with prohibitive memory 
+                requirements by allowing the effective use of modern graphical processing units (GPUs) to accelerate the arising matrix-vector products. 
+                This is critical to enable numerical MRI simulations at clinical voxel resolutions in a feasible computation time. We demonstrate million-fold compression
+                for very fine voxel resolutions, where the associated coupling matrix was compressed from 80TB to 43MB.
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2021.3090835" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -158,14 +175,19 @@
                 <a href="./assets/img/Proj1_Fig3.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the hybrid volume-surface integral equation paper">
                   <img src="./assets/img/Proj1_Fig3.png" class="project-figure" loading="lazy" alt="Shielded eight-element triangular coil array loaded with the Billie head model and separated into near and far domains">
                 </a>
-                <figcaption>Figure 1. Shielded 8-element triangular coil array loaded with the Billie head model. The cyan volume defines the domain near the sample, which contains the coil, whereas the shield belongs to the far domain outside the cyan region.</figcaption>
+                <figcaption> Magnitude of transmit field for an MRI transceive coil at 7T MRI. Results are shown for piecewise constant and piecewise linear basis functions. Simulations at such fine resolutions are completed in a practical time through our hybrid SVIE approach.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 project-paper-copy">
               <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2023</p>
               <h3>A Hybrid Volume-Surface Integral Equation Method for Rapid Electromagnetic Simulations in MRI</h3>
               <p>
-                This work develops a hybrid volume-surface integral equation method based on domain decomposition to perform fast and accurate MRI simulations that include both remote and local conductive elements. The conductive surfaces present in MRI setups are separated into two domains so that electromagnetic modeling can be optimized for each case. Interactions between the body and electromagnetic waves originating from local radiofrequency coils are modeled with the precorrected fast Fourier transform, whereas interactions with remote conductive surfaces, including the radiofrequency shield and scanner bore, are modeled with a cross tensor train-based algorithm. Compared with traditional volume-surface integral equation approaches, the hybrid method markedly improves the convergence time of numerical electromagnetic simulations and enables rapid simulations of complex and comprehensive MRI setups.
+                This work develops a hybrid volume-surface integral equation method based on domain decomposition to perform fast and accurate MRI simulations 
+                that include both remote and local conductive elements. The conductive surfaces present in MRI setups are separated into two domains so that 
+                electromagnetic modeling can be optimized for each case. Interactions between the body and electromagnetic waves originating from local radiofrequency 
+                coils are modeled with the precorrected fast Fourier transform, whereas interactions with remote conductive surfaces, including the radiofrequency shield
+                and scanner bore, are modeled with a cross tensor train-based algorithm. Compared with traditional volume-surface integral equation approaches, the hybrid method
+                markedly improves the convergence time of numerical electromagnetic simulations and enables rapid simulations of complex and comprehensive MRI setups.
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2022.3186235" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -181,14 +203,20 @@
                 <a href="./assets/img/Proj1_Fig4.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the ideal current pattern paper">
                   <img src="./assets/img/Proj1_Fig4.png" class="project-figure" loading="lazy" alt="Temporal snapshots of ideal current patterns on a helmet former at three magnetic field strengths">
                 </a>
-                <figcaption>Figure 7. Temporal snapshots of the ideal current patterns yielding optimal signal-to-noise ratio at a voxel in the back of the head for the helmet former at 1.5 T, 3 T, and 7 T. Four equally spaced time points are shown.</figcaption>
+                <figcaption>Temporal snapshots of the ideal current patterns yielding optimal signal-to-noise ratio at a voxel in the back of the head for four different coil substrates.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 order-lg-1 project-paper-copy">
               <p class="project-paper-meta">Magnetic Resonance in Medicine · 2024</p>
               <h3>Computational Methods for the Estimation of Ideal Current Patterns in Realistic Human Models</h3>
               <p>
-                This work introduces a method for estimating the ideal current patterns that yield optimal signal-to-noise ratio for realistic heterogeneous tissue models in MRI. The ideal current patterns are calculated for different surfaces that resemble typical radiofrequency coil formers. Numerical electromagnetic bases are constructed to accurately represent the electromagnetic fields generated by radiofrequency current sources located on these current-bearing surfaces. Using these fields as excitations, the volume integral equation is solved to compute the electromagnetic fields in the sample. The fields are then appropriately weighted to calculate the optimal signal-to-noise ratio and the corresponding ideal current patterns. The work also demonstrates how these patterns can be used qualitatively to guide the design of application-specific radiofrequency coil arrays that maximize signal-to-noise ratio inside a human head model.
+                This work introduces a method for estimating the ideal current patterns that yield optimal signal-to-noise ratio for realistic heterogeneous
+                tissue models in MRI. The ideal current patterns are calculated for different surfaces that resemble typical radiofrequency coil formers. 
+                Numerical electromagnetic bases are constructed to accurately represent the electromagnetic fields generated by radiofrequency current sources
+                located on these current-bearing surfaces. Using these fields as excitations, the volume integral equation is solved to compute the electromagnetic
+                fields in the sample. The fields are then appropriately weighted to calculate the optimal signal-to-noise ratio and the corresponding ideal current patterns. 
+                The work also demonstrates how these patterns can be used qualitatively to guide the design of application-specific radiofrequency
+                coil arrays that maximize signal-to-noise ratio inside a human head model.
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1002/mrm.29864" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -204,14 +232,19 @@
                 <a href="./assets/img/Proj1_Fig5.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the open-source RF coil design toolbox paper">
                   <img src="./assets/img/Proj1_Fig5.png" class="project-figure" loading="lazy" alt="Signal-to-noise ratio and scattering parameter comparisons for a 31-channel brain receive array">
                 </a>
-                <figcaption>Figure 5. Top: comparison of signal-to-noise ratio performance for a 31-channel brain imaging array in the middle sagittal, coronal, and axial planes. Bottom: comparison of the scattering parameters across all 31 receive channels for the CST and MRGF-PWL simulations after tuning, matching, and preamplifier decoupling.</figcaption>
+                <figcaption>Scattering parameters computed after co-simulation of a 31-channel receive array. Co-simulation was completed in a fully automatic fashion in 30 minutes, compared with the many hours required by commercial packages.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 project-paper-copy">
               <p class="project-paper-meta">Magnetic Resonance in Medicine · 2026</p>
               <h3>An Open-Source Software Toolbox for Rapid Radiofrequency Coil Design and Evaluation in MRI</h3>
               <p>
-                Image quality and resolution in MRI are fundamentally constrained by the performance of the radiofrequency coils used to excite the spins and receive the signal, making electromagnetic simulations essential for optimizing coil performance. This work introduces a comprehensive, open-source electromagnetic simulation toolbox for radiofrequency coil design in MRI. The toolbox combines four complementary components: a full-wave three-dimensional wire-surface-volume integral equation solver with tensor decompositions for reducing memory and accelerating simulations; a reduced-order model technique for patient-specific coil simulations; a fully automatic circuit co-simulator for coil tuning, matching, decoupling, preamplifier decoupling, and detuning; and a numerical electromagnetic basis generator for computing ultimate performance metrics. The framework supports fast, memory-friendly, accurate, and anatomy-specific radiofrequency coil array design.
+                Image quality and resolution in MRI are fundamentally constrained by the performance of the radiofrequency coils used to excite the spins and receive the signal,
+                making electromagnetic simulations essential for optimizing coil performance. This work introduces a comprehensive, open-source electromagnetic simulation toolbox
+                for radiofrequency coil design in MRI. The toolbox combines four complementary components: a full-wave three-dimensional wire-surface-volume integral equation solver
+                with tensor decompositions for reducing memory and accelerating simulations; a reduced-order model technique for patient-specific coil simulations; a fully automatic
+                circuit co-simulator for coil tuning, matching, decoupling, preamplifier decoupling, and detuning; and a numerical electromagnetic basis generator for computing ultimate
+                performance metrics. The framework supports fast, memory-friendly, accurate, and anatomy-specific radiofrequency coil array design.
               </p>
               <div class="project-paper-actions">
                 <a class="project-paper-link" href="https://doi.org/10.1002/mrm.70269" target="_blank" rel="noopener noreferrer">
