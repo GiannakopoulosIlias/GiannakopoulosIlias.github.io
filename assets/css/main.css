@@ -782,3 +782,142 @@ section,
 .wide-tooltip + .tooltip > .tooltip-inner {
   max-width: 600px; /* bigger width just for the 'wide-tooltip' class */
 }
+
+/*--------------------------------------------------------------
+# Research Project Content
+--------------------------------------------------------------*/
+
+.project-papers {
+  padding-bottom: 28px;
+}
+
+.project-paper {
+  padding: 52px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+}
+
+.project-paper:first-child {
+  border-top: 0;
+  padding-top: 20px;
+}
+
+.project-figure-link {
+  display: block;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 35px rgba(5, 13, 24, 0.08);
+  overflow: hidden;
+}
+
+.project-figure-block {
+  margin: 0;
+}
+
+.project-figure-block figcaption {
+  margin-top: 12px;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.project-figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.project-figure-link:hover .project-figure {
+  transform: scale(1.015);
+}
+
+.project-paper-copy {
+  max-width: 620px;
+}
+
+.project-paper-meta {
+  margin-bottom: 10px;
+  color: var(--accent-color);
+  font-family: var(--nav-font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.project-paper h3 {
+  margin-bottom: 17px;
+  font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+.project-paper-copy > p:not(.project-paper-meta) {
+  margin-bottom: 19px;
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.project-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 15px;
+  padding: 7px 12px;
+  border: 1px solid rgba(151, 109, 0, 0.2);
+  border-radius: 999px;
+  background: #fff8df;
+  color: #735400;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.project-award:hover {
+  background: #ffefb8;
+  color: #573f00;
+}
+
+.project-paper-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--nav-font);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.project-paper-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.project-code-link {
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+}
+
+@media (max-width: 991px) {
+  .project-paper {
+    padding: 42px 0;
+  }
+
+  .project-paper-copy {
+    max-width: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .project-paper {
+    padding: 34px 0;
+  }
+
+  .project-figure-link {
+    padding: 9px;
+    border-radius: 9px;
+  }
+}
