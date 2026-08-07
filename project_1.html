@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ilias Giannakopoulos</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>MRI Coil Simulation and Design | Ilias Giannakopoulos</title>
+  <meta content="Research on computational methods for rapid, scalable, and accessible MRI radiofrequency coil simulation and design." name="description">
+  <meta content="MRI, RF coils, computational electromagnetics, coil design, integral equations" name="keywords">
 
   <!-- Favicons -->
   <link href="./assets/img/favicon.png" rel="icon">
@@ -72,7 +72,7 @@
       <ul>
         <li><a href="./index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="./index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="./index.html#research_projects"><i class="bi bi-lightbulb navicon"></i> Research</a></li>
+        <li><a href="./index.html#research_projects" class="active" aria-current="page"><i class="bi bi-lightbulb navicon"></i> Research</a></li>
         <li><a href="./index.html#teaching"><i class="bi bi-book navicon"></i> Teaching</a></li>
         <li><a href="./index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
@@ -89,10 +89,126 @@
 
   </header>
 
-  <main class="main">
+  <main class="main project-detail">
     <section class="section light-background">
       <div class="container section-title" data-aos="fade-up">
+        <a class="project-back-link" href="./index.html#research_projects">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i> All research projects
+        </a>
         <h2>MRI Coil Simulation and Design</h2>
+        <p class="project-intro">
+          I develop computational methods that make radiofrequency coil simulation and design faster, more scalable, and more accessible. My work spans tensor compression, integral-equation solvers, ideal current analysis, and open-source tools for anatomy-specific coil engineering.
+        </p>
+      </div>
+
+      <div class="container project-papers">
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <a href="./assets/img/Proj1_Fig1.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the tensor decomposition paper">
+                <img src="./assets/img/Proj1_Fig1.png" class="project-figure" alt="Overview of tensor decomposition for accelerating electromagnetic MRI simulations">
+              </a>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2019</p>
+              <h3>Memory Footprint Reduction for the FFT-Based Volume Integral Equation Method via Tensor Decompositions</h3>
+              <p>
+                This work introduced tensor decompositions to compress the large operators used in electromagnetic MRI simulations. The resulting memory savings made high-resolution, GPU-accelerated coil–body simulations far more practical.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2019.2930126" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 order-lg-2">
+              <a href="./assets/img/Proj1_Fig2.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the volume-surface matrix compression paper">
+                <img src="./assets/img/Proj1_Fig2.png" class="project-figure" loading="lazy" alt="Compressed coil-to-body interactions for electromagnetic MRI simulation">
+              </a>
+            </div>
+            <div class="col-lg-6 order-lg-1 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2022</p>
+              <a class="project-award" href="https://ieeeaps.org/ieee-tap/news-tap/ieee-tap-news/tap-2023-harold-wheeler-applications-prize" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-award" aria-hidden="true"></i> 2023 Harold A. Wheeler Prize Paper Award
+              </a>
+              <h3>Compression of Volume-Surface Integral Equation Matrices via Tucker Decomposition for Magnetic Resonance Applications</h3>
+              <p>
+                This study extended tensor compression to the electromagnetic coupling between RF coils and anatomical models. It removed a major memory bottleneck in detailed MRI simulations while preserving the underlying physics.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2021.3090835" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <a href="./assets/img/Proj1_Fig3.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the hybrid volume-surface integral equation paper">
+                <img src="./assets/img/Proj1_Fig3.png" class="project-figure" loading="lazy" alt="Hybrid electromagnetic model of an MRI coil, body, bore, and shield">
+              </a>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2023</p>
+              <h3>A Hybrid Volume-Surface Integral Equation Method for Rapid Electromagnetic Simulations in MRI</h3>
+              <p>
+                This work combined complementary fast solvers for nearby RF coils and large scanner structures. The hybrid approach made comprehensive simulations of realistic MRI systems substantially more feasible.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2022.3186235" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 order-lg-2">
+              <a href="./assets/img/Proj1_Fig4.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the ideal current pattern paper">
+                <img src="./assets/img/Proj1_Fig4.png" class="project-figure" loading="lazy" alt="Ideal radiofrequency current patterns evaluated on realistic human anatomy">
+              </a>
+            </div>
+            <div class="col-lg-6 order-lg-1 project-paper-copy">
+              <p class="project-paper-meta">Magnetic Resonance in Medicine · 2023</p>
+              <h3>Computational Methods for the Estimation of Ideal Current Patterns in Realistic Human Models</h3>
+              <p>
+                This work developed practical ways to estimate the best RF current patterns that could theoretically be achieved for realistic human anatomy. These ideal patterns provide useful performance benchmarks and guidance for future coil designs.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1002/mrm.29864" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <a href="./assets/img/Proj1_Fig5.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the open-source RF coil design toolbox paper">
+                <img src="./assets/img/Proj1_Fig5.png" class="project-figure" loading="lazy" alt="Open-source workflow for rapid MRI radiofrequency coil design and evaluation">
+              </a>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">Magnetic Resonance in Medicine · 2026</p>
+              <h3>An Open-Source Software Toolbox for Rapid Radiofrequency Coil Design and Evaluation in MRI</h3>
+              <p>
+                This project brought our simulation, circuit modeling, and optimization methods together in an open-source toolbox. It makes advanced, anatomy-specific RF coil engineering more accessible to researchers and coil designers.
+              </p>
+              <div class="project-paper-actions">
+                <a class="project-paper-link" href="https://doi.org/10.1002/mrm.70269" target="_blank" rel="noopener noreferrer">
+                  Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+                <a class="project-paper-link project-code-link" href="https://github.com/cloudmrhub/marie-tools" target="_blank" rel="noopener noreferrer">
+                  View the code <i class="bi bi-github" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
