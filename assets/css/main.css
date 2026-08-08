@@ -787,6 +787,23 @@ section,
 # Research Project Content
 --------------------------------------------------------------*/
 
+.project-heading {
+  padding-bottom: 32px;
+}
+
+.project-heading .section-title {
+  padding-bottom: 0;
+}
+
+.project-heading .project-intro {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.project-papers-section {
+  padding-top: 0;
+}
+
 .project-papers {
   padding-bottom: 28px;
 }
