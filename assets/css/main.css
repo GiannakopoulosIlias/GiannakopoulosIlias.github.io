@@ -938,3 +938,14 @@ section,
     border-radius: 9px;
   }
 }
+
+/* On mobile/tablet, show project text before its figure */
+@media (max-width: 991px) {
+  .project-paper .project-paper-copy {
+    order: 1;
+  }
+
+  .project-paper .row > .col-lg-6:not(.project-paper-copy) {
+    order: 2;
+  }
+}
