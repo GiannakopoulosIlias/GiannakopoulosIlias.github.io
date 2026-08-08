@@ -1,940 +1,295 @@
-/* ---- Learn More Button ---- */
-
-/* Template Name: iPortfolio
-   Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-   Updated: Jun 29 2024 with Bootstrap v5.3.3
-   Author: BootstrapMade.com
-   License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
-:root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
-}
-
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root {
-  --background-color: #ffffff;
-  --default-color: #272829;
-  --heading-color: #050d18;
-  --accent-color: #57068c;
-  --surface-color: #ffffff;
-  --contrast-color: #ffffff;
-}
- 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
-  --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
-}
-
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
-.light-background {
-  --background-color: #f4fafd;
-  --surface-color: #ffffff;
-}
-
-.dark-background {
-  --background-color: #040b14;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #151f2b;
-  --contrast-color: #ffffff;
-}
-
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
-}
-
-/*--------------------------------------------------------------
-# General Styling & Shared Classes
---------------------------------------------------------------*/
-body {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-family: var(--default-font);
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--heading-color);
-  font-family: var(--heading-font);
-}
-
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/*--------------------------------------------------------------
-# Global Header
---------------------------------------------------------------*/
-.header {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  padding: 0 15px;
-  width: 300px;
-  transition: all ease-in-out 0.3s;
-  overflow-y: auto;
-  z-index: 997;
-  border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.header .profile-img img {
-  margin: 15px auto;
-  display: block;
-  width: 120px;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.header .logo {
-  line-height: 1;
-  margin-bottom: 15px;
-}
-
-.header .logo img {
-  max-height: 32px;
-  margin-right: 8px;
-}
-
-.header .logo h1 {
-  font-size: 24px;
-  margin: 0;
-  font-weight: 700;
-  color: var(--heading-color);
-}
-
-.header .social-links {
-  margin: 0 0 20px 0;
-}
-
-.header .social-links a {
-  font-size: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  color: var(--default-color);
-  margin: 0 2px;
-  border-radius: 50%;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  transition: 0.3s;
-}
-
-.header .social-links a:hover {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-}
-
-@media (min-width: 1200px) {
-
-  .header~main,
-  .header~#footer {
-    margin-left: 300px;
-  }
-}
-
-@media (max-width: 1199px) {
-  .header {
-    left: -100%;
-  }
-}
-
-.header.header-show {
-  left: 0;
-}
-
-.header .header-toggle {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999;
-  transition: background-color 0.3s;
-}
-
-.header .header-toggle:hover {
-  color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
-}
-
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-.mobile-nav-toggle {
-  display: none;
-}
-
-.navmenu {
-  padding: 0;
-  z-index: 9997;
-}
-
-.navmenu ul {
-  list-style: none;
-  padding: 0 0 20px 0;
-  margin: 0;
-}
-
-.navmenu a,
-.navmenu a:focus {
-  color: var(--nav-color);
-  padding: 15px 10px;
-  font-family: var(--nav-font);
-  font-size: 16px;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  transition: 0.3s;
-  width: 100%;
-}
-
-.navmenu a .navicon,
-.navmenu a:focus .navicon {
-  font-size: 20px;
-  margin-right: 10px;
-}
-
-.navmenu a .toggle-dropdown,
-.navmenu a:focus .toggle-dropdown {
-  font-size: 12px;
-  line-height: 0;
-  margin-left: auto;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: 0.3s;
-  flex-shrink: 0;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.navmenu a .toggle-dropdown:hover,
-.navmenu a:focus .toggle-dropdown:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.navmenu a:hover,
-.navmenu .active,
-.navmenu .active:focus {
-  color: var(--nav-hover-color);
-}
-
-.navmenu a:hover .navicon,
-.navmenu .active .navicon,
-.navmenu .active:focus .navicon {
-  color: var(--accent-color);
-}
-
-.navmenu .active .toggle-dropdown,
-.navmenu .active:focus .toggle-dropdown {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  transform: rotate(180deg);
-}
-
-/*--------------------------------------------------------------
-# Global Footer
---------------------------------------------------------------*/
-.footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-size: 14px;
-  padding: 40px 0; /* Reduce padding to prevent excess space */
-  position: relative; /* Ensure it's placed correctly */
-  border-top: 0px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  margin-top: auto; /* Forces footer to bottom */
-}
-
-.footer .copyright p {
-  margin-bottom: 0;
-}
-
-.footer .credits {
-  margin-top: 5px;
-  font-size: 10px;
-  text-align: center;
-  color: gray; /* Sets text color to gray */
-}
-
-.footer .credits br {
-    display: block; /* Forces line break */
-    content: ""; /* Ensures proper rendering */
-}
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/*--------------------------------------------------------------
-# Scroll Top Button
---------------------------------------------------------------*/
-.scroll-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.scroll-top i {
-  font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
-}
-
-.scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
-}
-
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
-  bottom: 15px;
-}
-
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
-  }
-}
-
-/*--------------------------------------------------------------
-# Global Sections
---------------------------------------------------------------*/
-section,
-.section {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 60px 0;
-  overflow: clip;
-}
-
-/*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
-.section-title {
-  padding-bottom: 10px;
-  position: relative;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
-}
-
-.section-title h2:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--accent-color);
-  left: 0;
-  bottom: 0;
-}
-
-.section-title p {
-  margin-bottom: 0;
-}
-
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
-.hero {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  padding: 80px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 70%);
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 3;
-}
-
-.hero h2 {
-  margin: 0;
-  font-size: 64px;
-  font-weight: 700;
-}
-
-.hero p {
-  margin: 5px 0 0 0;
-  font-size: 26px;
-}
-
-.hero p span {
-  letter-spacing: 1px;
-  border-bottom: 2px solid var(--accent-color);
-}
-
-@media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 20px;
-  }
-}
-
-/*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
-.about .content h2 {
-  font-weight: 700;
-  font-size: 24px;
-}
-
-/*--------------------------------------------------------------
-# Research cards
---------------------------------------------------------------*/
-
-.research-card {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s ease-in-out;
-}
-
-.research-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Icon-style image (like Teaching) */
-.research-icon {
-  width: 150px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-  border-radius: 6px;
-}
-
-/* Title */
-.research-card .card-title {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-.contact .info-wrap {
-  background-color: var(--surface-color);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-}
-
-@media (max-width: 575px) {
-  .contact .info-wrap {
-    padding: 20px;
-  }
-}
-
-.contact .info-item {
-  margin-bottom: 40px;
-}
-
-.contact .info-item i {
-  font-size: 20px;
-  color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  width: 44px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-  margin-right: 15px;
-}
-
-.contact .info-item h3 {
-  padding: 0;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.contact .info-item p {
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 14px;
-}
-
-.contact .info-item:hover i {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.contact .php-email-form {
-  background-color: var(--surface-color);
-  height: 100%;
-  padding: 30px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 575px) {
-  .contact .php-email-form {
-    padding: 20px;
-  }
-}
-
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
-  font-size: 14px;
-  padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
-}
-
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
-  border-color: var(--accent-color);
-}
-
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-.contact .php-email-form button[type=submit] {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 25%);
-}
-
-/*--------------------------------------------------------------
-# Teaching Details Section
---------------------------------------------------------------*/
-.teaching-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.teaching-item {
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.teaching-item:last-child {
-  border-bottom: none;
-}
-
-.role {
-  display: block;
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 2px;
-}
-
-.entry-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-}
-
-.entry-row + .entry-row {
-  margin-top: 4px;
-}
-
-.entry-title {
-  min-width: 0;
-}
-
-.entry-date {
-  color: #666;
-  font-size: 0.9em;
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-style: normal;
-}
-
-.teaching-meta {
-  font-size: 0.95em;
-  color: #666;
-  margin-top: 2px;
-}
-
-.group-label {
-  display: block;
-  font-weight: 700;
-  color: #222;
-  margin-top: 8px;
-  margin-bottom: 4px;
-}
-
-.group-label:first-of-type {
-  margin-top: 2px;
-}
-
-.group-block + .group-block {
-  margin-top: 10px;
-}
-
-/*--------------------------------------------------------------
-# Custom
---------------------------------------------------------------*/
-/* Ensure all social icons are the same size and aligned */
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px; /* Match LinkedIn, X, GitHub */
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1); /* Adjust if necessary */
-    vertical-align: middle; /* Aligns inline elements */
-}
-
-/* Ensure the Scholar image is properly sized and centered */
-.googlescholar img {
-    width: 20px;  /* Adjust to match font icon sizes */
-    height: 20px;
-    filter: grayscale(100%);
-    display: block;
-    margin-top: 2px;  /* Move the image down */
-}
-
-.tooltip-inner {
-  max-width: 600px !important;   /* wider than default */
-  white-space: normal !important; /* allow line breaks */
-  text-align: left;               /* optional: align text */
-  font-size: 0.9rem;              /* optional: adjust size */
-  line-height: 1.5;               /* optional: more spacing between lines */
-}
-
-.wide-tooltip + .tooltip > .tooltip-inner {
-  max-width: 600px; /* bigger width just for the 'wide-tooltip' class */
-}
-
-/*--------------------------------------------------------------
-# Research Project Content
---------------------------------------------------------------*/
-
-.project-heading {
-  padding-bottom: 32px;
-}
-
-.project-heading .section-title {
-  padding-bottom: 0;
-}
-
-.project-heading .project-intro {
-  margin: 0;
-  line-height: 1.65;
-}
-
-.project-papers-section {
-  padding-top: 0;
-}
-
-.project-papers {
-  padding-bottom: 28px;
-}
-
-.project-paper {
-  padding: 52px 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-}
-
-.project-paper:first-child {
-  border-top: 0;
-  padding-top: 20px;
-}
-
-.project-figure-link {
-  display: block;
-  padding: 14px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 12px 35px rgba(5, 13, 24, 0.08);
-  overflow: hidden;
-}
-
-.project-figure-block {
-  margin: 0;
-}
-
-.project-figure-block figcaption {
-  margin-top: 12px;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
-  font-size: 0.84rem;
-  line-height: 1.55;
-}
-
-.project-figure {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 430px;
-  object-fit: contain;
-  transition: transform 0.35s ease;
-}
-
-.project-figure-link:hover .project-figure {
-  transform: scale(1.015);
-}
-
-.project-paper-copy {
-  max-width: 620px;
-}
-
-.project-paper-meta {
-  margin-bottom: 10px;
-  color: var(--accent-color);
-  font-family: var(--nav-font);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.055em;
-  text-transform: uppercase;
-}
-
-.project-paper h3 {
-  margin-bottom: 17px;
-  font-size: clamp(1.35rem, 2.1vw, 1.9rem);
-  font-weight: 700;
-  line-height: 1.28;
-}
-
-.project-paper-copy > p:not(.project-paper-meta) {
-  margin-bottom: 19px;
-  color: color-mix(in srgb, var(--default-color), transparent 12%);
-  font-size: 1rem;
-  line-height: 1.72;
-}
-
-.project-award {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 15px;
-  padding: 7px 12px;
-  border: 1px solid rgba(151, 109, 0, 0.2);
-  border-radius: 999px;
-  background: #fff8df;
-  color: #735400;
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.project-award:hover {
-  background: #ffefb8;
-  color: #573f00;
-}
-
-.project-paper-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--nav-font);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.project-paper-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 24px;
-}
-
-.project-code-link {
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
-}
-
-@media (max-width: 991px) {
-  .project-paper {
-    padding: 42px 0;
-  }
-
-  .project-paper-copy {
-    max-width: none;
-  }
-}
-
-@media (max-width: 575px) {
-  .project-paper {
-    padding: 34px 0;
-  }
-
-  .project-figure-link {
-    padding: 9px;
-    border-radius: 9px;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Ilias Giannakopoulos</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="./assets/img/favicon.png" rel="icon">
+  <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="./assets/css/main.css" rel="stylesheet">
+  
+  <!-- =======================================================
+  * Template Name: iPortfolio
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+  <!-- Animated Background -->
+  <div id="background"></div>
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="./assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="./index.html" class="logo d-flex align-items-center justify-content-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="./assets/img/logo.png" alt=""> -->
+      <h1 class="sitename">Ilias Giannakopoulos</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://scholar.google.com/citations?user=6Zpd1esAAAAJ" class="googlescholar social-icon">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
+      </a>
+      <a href="https://www.linkedin.com/in/ilias-giannakopoulos-1051b7184/" class="linkedin">
+          <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="https://x.com/IliasGiannakop3" class="twitter">
+          <i class="bi bi-twitter-x"></i>
+      </a>
+      <a href="https://github.com/GiannakopoulosIlias" class="github">
+          <i class="bi bi-github"></i>
+      </a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="./index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="./index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="./index.html#research_projects"><i class="bi bi-lightbulb navicon"></i> Research</a></li>
+        <li><a href="./index.html#teaching"><i class="bi bi-book navicon"></i> Teaching</a></li>
+        <li><a href="./index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+    <footer id="footer" class="footer position-relative">
+      <div class="container">
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>.<br>
+          Customized by Ilias Giannakopoulos.
+        </div>
+      </div>
+    </footer>
+
+  </header>
+
+  <main class="main">
+    <section class="section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>MRI Coil Simulation and Design</h2>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container project-papers">
+        <p class="project-intro" data-aos="fade-up">
+          One of my most noted contributions to MRI has been the development of rapid and accurate simulation tools 
+          based on the integral equation method that model the interactions between EM waves, RF coils, and biological tissue. 
+          To improve computational efficiency of such methods, I developed tensor decomposition-based techniques, enabling the simulations to run on a GPU, 
+          achieving faster processing times without sacrificing any numerical precision. Over the years, I expanded my methods to more realistic MRI setups through 
+          existing and novel numerical linear algebra algorithms. These methods allowed extremely fast and accurate MRI simulations that include RF coils, RF shields,
+          the scanner’s bore, and realistic anatomical models. 
+        </p>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig1.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the tensor decomposition paper">
+                  <img src="./assets/img/Proj1_Fig1.png" class="project-figure" alt="Visual representation of the Tucker plus CP tensor decomposition method">
+                </a>
+                <figcaption>Relative error of the absorbed power and transmit magnetic field between the Tucker-based decomposition approaches and the baseline method.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2019</p>
+              <h3>Memory Footprint Reduction for the FFT-Based Volume Integral Equation Method via Tensor Decompositions</h3>
+              <p>
+                This work presents a method of memory footprint reduction for FFT-based electromagnetic volume integral equation (VIE) formulations. 
+                The arising Green's function tensors of VIE have low multilinear rank properties, which allows Tucker decomposition to be employed for their compression, 
+                thereby greatly reducing the required memory storage of the corresponding numerical simulations. Consequently, the compressed components are able to fit inside a
+                graphical processing unit (GPU) on which highly parallelized computations can vastly accelerate the iterative solution of the arising linear system. 
+                We demonstrate the utility of our approach via its application to VIE simulations for the magnetic resonance imaging (MRI) of a human head. 
+                For these simulations, we report an order-of-magnitude acceleration over standard techniques.
+                </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2019.2930126" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 order-lg-2">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig2.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the volume-surface matrix compression paper">
+                  <img src="./assets/img/Proj1_Fig2.png" class="project-figure" loading="lazy" alt="Maximum Tucker rank as a function of voxel resolution for multiple head and coil discretizations">
+                </a>
+                <figcaption> Maximum Tucker rank as a function of the voxel resolution for multiple coil-body MRI configurations.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 order-lg-1 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2022</p>
+              <a class="project-award" href="https://ieeeaps.org/ieee-tap/news-tap/ieee-tap-news/tap-2023-harold-wheeler-applications-prize" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-award" aria-hidden="true"></i> 2023 Harold A. Wheeler Applications Prize Paper Award
+              </a>
+              <h3>Compression of Volume-Surface Integral Equation Matrices via Tucker Decomposition for Magnetic Resonance Applications</h3>
+              <p>
+                This work proposes a method for the compression of the coupling matrix in surface-volume integral
+                equation (SVIE) formulations. SVIE methods are used for electromagnetic analysis in MRI applications, 
+                for which the coupling matrix models the interactions between the coil and the body. We showed that these effects
+                can be represented as independent interactions between remote elements in 3D tensor formats and subsequently decomposed
+                with the Tucker model. We demonstrated that our compression approach can enable the use of VSIE matrices with prohibitive memory 
+                requirements by allowing the effective use of modern graphical processing units (GPUs) to accelerate the arising matrix-vector products. 
+                This is critical to enable numerical MRI simulations at clinical voxel resolutions in a feasible computation time. We demonstrate million-fold compression
+                for very fine voxel resolutions, where the associated coupling matrix was compressed from 80TB to 43MB.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2021.3090835" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig3.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the hybrid volume-surface integral equation paper">
+                  <img src="./assets/img/Proj1_Fig3.png" class="project-figure" loading="lazy" alt="Shielded eight-element triangular coil array loaded with the Billie head model and separated into near and far domains">
+                </a>
+                <figcaption> Magnitude of transmit field for an MRI transceive coil at 7T MRI. Results are shown for piecewise constant and piecewise linear basis functions. Simulations at such fine resolutions are completed in a practical time through our hybrid SVIE approach.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2023</p>
+              <h3>A Hybrid Volume-Surface Integral Equation Method for Rapid Electromagnetic Simulations in MRI</h3>
+              <p>
+                This work develops a hybrid volume-surface integral equation method based on domain decomposition to perform fast and accurate MRI simulations 
+                that include both remote and local conductive elements. The conductive surfaces present in MRI setups are separated into two domains so that 
+                electromagnetic modeling can be optimized for each case. Interactions between the body and electromagnetic waves originating from local radiofrequency 
+                coils are modeled with the precorrected fast Fourier transform, whereas interactions with remote conductive surfaces, including the radiofrequency shield
+                and scanner bore, are modeled with a cross tensor train-based algorithm. Compared with traditional volume-surface integral equation approaches, the hybrid method
+                markedly improves the convergence time of numerical electromagnetic simulations and enables rapid simulations of complex and comprehensive MRI setups.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2022.3186235" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 order-lg-2">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig4.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the ideal current pattern paper">
+                  <img src="./assets/img/Proj1_Fig4.png" class="project-figure" loading="lazy" alt="Temporal snapshots of ideal current patterns on a helmet former at three magnetic field strengths">
+                </a>
+                <figcaption>Temporal snapshots of the ideal current patterns yielding optimal signal-to-noise ratio at a voxel in the back of the head for four different coil substrates.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 order-lg-1 project-paper-copy">
+              <p class="project-paper-meta">Magnetic Resonance in Medicine · 2024</p>
+              <h3>Computational Methods for the Estimation of Ideal Current Patterns in Realistic Human Models</h3>
+              <p>
+                This work introduces a method for estimating the ideal current patterns that yield optimal signal-to-noise ratio for realistic heterogeneous
+                tissue models in MRI. The ideal current patterns are calculated for different surfaces that resemble typical radiofrequency coil formers. 
+                Numerical electromagnetic bases are constructed to accurately represent the electromagnetic fields generated by radiofrequency current sources
+                located on these current-bearing surfaces. Using these fields as excitations, the volume integral equation is solved to compute the electromagnetic
+                fields in the sample. The fields are then appropriately weighted to calculate the optimal signal-to-noise ratio and the corresponding ideal current patterns. 
+                The work also demonstrates how these patterns can be used qualitatively to guide the design of application-specific radiofrequency
+                coil arrays that maximize signal-to-noise ratio inside a human head model.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1002/mrm.29864" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig5.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="Open full-size figure from the open-source RF coil design toolbox paper">
+                  <img src="./assets/img/Proj1_Fig5.png" class="project-figure" loading="lazy" alt="Signal-to-noise ratio and scattering parameter comparisons for a 31-channel brain receive array">
+                </a>
+                <figcaption>Scattering parameters computed after co-simulation of a 31-channel receive array. Co-simulation was completed in a fully automatic fashion in 30 minutes, compared with the many hours required by commercial packages.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">Magnetic Resonance in Medicine · 2026</p>
+              <h3>An Open-Source Software Toolbox for Rapid Radiofrequency Coil Design and Evaluation in MRI</h3>
+              <p>
+                Image quality and resolution in MRI are fundamentally constrained by the performance of the radiofrequency coils used to excite the spins and receive the signal,
+                making electromagnetic simulations essential for optimizing coil performance. This work introduces a comprehensive, open-source electromagnetic simulation toolbox
+                for radiofrequency coil design in MRI. The toolbox combines four complementary components: a full-wave three-dimensional wire-surface-volume integral equation solver
+                with tensor decompositions for reducing memory and accelerating simulations; a reduced-order model technique for patient-specific coil simulations; a fully automatic
+                circuit co-simulator for coil tuning, matching, decoupling, preamplifier decoupling, and detuning; and a numerical electromagnetic basis generator for computing ultimate
+                performance metrics. The framework supports fast, memory-friendly, accurate, and anatomy-specific radiofrequency coil array design.
+              </p>
+              <div class="project-paper-actions">
+                <a class="project-paper-link" href="https://doi.org/10.1002/mrm.70269" target="_blank" rel="noopener noreferrer">
+                  Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+                <a class="project-paper-link project-code-link" href="https://github.com/cloudmrhub/marie-tools" target="_blank" rel="noopener noreferrer">
+                  View the code <i class="bi bi-github" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/php-email-form/validate.js"></script>
+  <script src="./assets/vendor/aos/aos.js"></script>
+  <script src="./assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="./assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="./assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="./assets/js/main.js"></script>
+  <!-- For hovering -->
+  <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+  
+</body>
+
+</html>
