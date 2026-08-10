@@ -813,10 +813,6 @@ section,
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
 }
 
-.project-paper-copy-full {
-  max-width: none;
-}
-
 .project-paper:first-child {
   border-top: 0;
   padding-top: 20px;
@@ -858,6 +854,11 @@ section,
 
 .project-paper-copy {
   max-width: 620px;
+}
+
+.project-paper-copy.project-paper-copy-full {
+  max-width: none;
+  width: 100%;
 }
 
 .project-paper-meta {
