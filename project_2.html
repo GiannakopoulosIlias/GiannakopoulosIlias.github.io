@@ -179,8 +179,7 @@
                 measurements. GMT uses the volume integral equation (VIE) in the forward problem and assumes that the sample has negligible effect on the coil currents. 
                 Consequently, GMT calculates the coil's incident fields with an initial EP distribution and keeps them constant for all optimization iterations. This can lead to
                 erroneous reconstructions. This work introduces a novel version of GMT that replaces VIE with the volume-surface integral equation (VSIE), which recalculates 
-                the coil currents at every iteration based on updated EP estimates before computing the associated fields. We built the coil, collected experimental MR measurements, and reconstructed EP
-                of a two-compartment phantom, showing good agreement with the probe-measured values. The use of VSIE over VIE enhances GMT's performance by accounting for the effect of the EP on
+                the coil currents at every iteration based on updated EP estimates before computing the associated fields. The use of VSIE over VIE enhances GMT's performance by accounting for the effect of the EP on
                 the coil currents. 
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2025.3572800" target="_blank" rel="noopener noreferrer">
