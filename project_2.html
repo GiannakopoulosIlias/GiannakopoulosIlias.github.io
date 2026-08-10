@@ -112,14 +112,19 @@
                 <a href="./assets/img/Proj2_Fig1.png" class="glightbox project-figure-link" data-gallery="project-2" aria-label="1">
                   <img src="./assets/img/Proj2_Fig1.png" class="project-figure" alt="1">
                 </a>
-                <figcaption>.</figcaption>
+                <figcaption>The scattering parameters of the RF coil array loaded with the "Duke" head model, after lumped-element and matching network optimization.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 project-paper-copy">
               <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2021</p>
               <h3>Magnetic-resonance-based electrical property mapping using Global Maxwell Tomography with an 8-channel head coil at 7 Tesla: a simulation study</h3>
               <p>
-               . 
+               Global Maxwell Tomography (GMT) is a volumetric technique for noninvasive estimation of electrical properties (EP) from magnetic
+               resonance measurements. This simulation study assessed GMT's performance with a realistic custom RF coil. We designed a transceive
+               RF coil with 8 decoupled channels for 7T head imaging. We calculated the RF transmit field inside heterogeneous head models for different RF shimming approaches,
+               and used them as input for GMT to reconstruct EP for all head voxels. We demonstrated that GMT can reliably reconstruct EP in realistic simulated scenarios 
+               using the proposed RF coil design. GMT could provide accurate estimations of tissue EP, which could be used as biomarkers and could enable patient-specific
+               estimation of RF power deposition, which is an unsolved problem for ultra-high-field magnetic resonance imaging.
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2020.2991399" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -135,14 +140,20 @@
                 <a href="./assets/img/Proj2_Fig2.png" class="glightbox project-figure-link" data-gallery="project-2" aria-label="2">
                   <img src="./assets/img/Proj2_Fig2.png" class="project-figure" loading="lazy" alt="2">
                 </a>
-                <figcaption>.</figcaption>
+                <figcaption> In vivo results, including MRI images, Canny edge masks, and reconstructed conductivity maps for different MRI measurements, shown for representative coronal, sagittal, and axial planes.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 order-lg-1 project-paper-copy">
               <p class="project-paper-meta">Magnetic Resonance in Medicine · 2025</p>
               <h3>MR electrical properties mapping using vision transformers and canny edge detectors</h3>
               <p>
-               . 
+               This work developed a 3D vision transformer-based neural network to reconstruct electrical properties (EP) from magnetic resonance measure-
+               ments. The network used the magnitude of the transmit magnetic field of a birdcage coil, the associated transceive phase, and a
+               Canny edge mask that identified the object boundaries as inputs to compute the EP maps. The was network was trained on a dataset of 10k synthetic
+               tissue-mimicking phantoms and fine-tuned on a dataset of 11k realistic head models. Performance was assessed in-distribution simulated data, 
+               out-of-distribution head models, with and without synthetic lesions, experiments for an inhomogeneous phantom and a volunteer.
+               The in vivo EP reconstruction truthfully preserved the subject's anatomy with average values over the entire head similar to the expected literature values.
+               The new approach marked an important step towards the development of clinically-usable in vivo EP reconstruction protocols. 
               </p>
               <a class="project-paper-link" href="https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.30338" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -158,14 +169,21 @@
                 <a href="./assets/img/Proj2_Fig3.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="3">
                   <img src="./assets/img/Proj2_Fig3.png" class="project-figure" loading="lazy" alt="3">
                 </a>
-                <figcaption>.</figcaption>
+                <figcaption>7 tesla 8-channel triangular transceiver RF coil array used for EP reconstruction with the VSIE-based GMT.</figcaption>
               </figure>
             </div>
             <div class="col-lg-6 project-paper-copy">
               <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2025</p>
               <h3>Global Maxwell Tomography Using the Volume-Surface Integral Equation for Improved Estimation of Electrical Properties</h3>
               <p>
-                .
+                Global Maxwell Tomography (GMT) is a noninvasive inverse optimization method for the estimation of electrical properties (EP) from magnetic resonance (MR)
+                measurements. GMT uses the volume integral equation (VIE) in the forward problem and assumes that the sample has negligible effect on the coil currents. 
+                Consequently, GMT calculates the coil's incident fields with an initial EP distribution and keeps them constant for all optimization iterations. This can lead to
+                erroneous reconstructions. This work introduces a novel version of GMT that replaces VIE with the volume-surface integral equation (VSIE), which recalculates 
+                the coil currents at every iteration based on updated EP estimates before computing the associated fields. We simulated an 8-channel transceiver coil array for 
+                7 T brain imaging and reconstructed the EP of a realistic head model using VSIE-based GMT. We built the coil, collected experimental MR measurements, and reconstructed EP
+                of a two-compartment phantom, showing good agreement with the probe-measured values. The use of VSIE over VIE enhances GMT's performance by accounting for the effect of the EP on
+                the coil currents. VSIE-based GMT is overall more suitable for experimental reconstructions compared to the VIE-based GMT.
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2025.3572800" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -180,7 +198,10 @@
               <p class="project-paper-meta">Journal of Magnetic Resonance Imaging · 2025</p>
               <h3>Construction of Phantoms for MR Electrical Properties Tomography (From Structure to Composition): A Guideline From the ISMRM Electro-Magnetic Tissue Properties Study Group</h3>
               <p>
-                .
+                MR-­based Electrical Properties (EPs) Tomography (MR-­EPT) denotes non-­invasive electrical conductivity and permittivity mapping methods using MR measurements. 
+                The lack of standardized tissue-­mimicking phantoms hinders reproducibility studies and method comparisons. For example, the NIST/ISMRM MRI system phantom has
+                contributed significantly to standardization efforts in relaxometry, underscoring the importance of having similar benchmarks for MR-­EPT. The guidelines presented in this work
+                outline the importance of MR-­EPT phantom design and construction, focusing on structure, composition, and reliability.
               </p>
               <a class="project-paper-link" href="https://onlinelibrary.wiley.com/doi/10.1002/jmri.70059" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
