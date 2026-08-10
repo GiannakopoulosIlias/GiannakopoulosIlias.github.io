@@ -123,8 +123,7 @@
                resonance measurements. This simulation study assessed GMT's performance with a realistic custom RF coil. We designed a transceive
                RF coil with 8 decoupled channels for 7T head imaging. We calculated the RF transmit field inside heterogeneous head models for different RF shimming approaches,
                and used them as input for GMT to reconstruct EP for all head voxels. We demonstrated that GMT can reliably reconstruct EP in realistic simulated scenarios 
-               using the proposed RF coil design. GMT could provide accurate estimations of tissue EP, which could be used as biomarkers and could enable patient-specific
-               estimation of RF power deposition, which is an unsolved problem for ultra-high-field magnetic resonance imaging.
+               using the proposed RF coil design. 
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2020.2991399" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -180,10 +179,9 @@
                 measurements. GMT uses the volume integral equation (VIE) in the forward problem and assumes that the sample has negligible effect on the coil currents. 
                 Consequently, GMT calculates the coil's incident fields with an initial EP distribution and keeps them constant for all optimization iterations. This can lead to
                 erroneous reconstructions. This work introduces a novel version of GMT that replaces VIE with the volume-surface integral equation (VSIE), which recalculates 
-                the coil currents at every iteration based on updated EP estimates before computing the associated fields. We simulated an 8-channel transceiver coil array for 
-                7 T brain imaging and reconstructed the EP of a realistic head model using VSIE-based GMT. We built the coil, collected experimental MR measurements, and reconstructed EP
+                the coil currents at every iteration based on updated EP estimates before computing the associated fields. We built the coil, collected experimental MR measurements, and reconstructed EP
                 of a two-compartment phantom, showing good agreement with the probe-measured values. The use of VSIE over VIE enhances GMT's performance by accounting for the effect of the EP on
-                the coil currents. VSIE-based GMT is overall more suitable for experimental reconstructions compared to the VIE-based GMT.
+                the coil currents. 
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2025.3572800" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
