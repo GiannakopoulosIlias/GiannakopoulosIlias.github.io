@@ -90,9 +90,79 @@
   </header>
 
   <main class="main">
-    <section class="section light-background">
+    <section class="section light-background project-heading">
       <div class="container section-title" data-aos="fade-up">
         <h2>MRI Image Reconstruction</h2>
+        <p class="project-intro">
+           I have contributed to advancing machine learning methods for accelerated MRI reconstruction, with a focus on improving image quality, robustness, and clinical reliability. 
+           I developed a novel unrolled neural network architecture that integrates cross-domain learning with transformer modules to reconstruct MRI images from undersampled k-space data. 
+           In addition, I introduced an uncertainty quantification framework for such MRI image reconstruction model. This framework computes pixel-wise confidence intervals with statistical
+           guarantees, providing a quantitative measure of reliability for each reconstructed image–something not available in current clinical reconstruction pipelines. This work shows
+           that uncertainty can serve as a confidence surrogate for deep-learning-based MRI reconstruction, when ground-truth reference images are unavailable. These contributions advance
+           the broader goal of developing MRI reconstruction methods that are not only fast and highly accurate, but also trustworthy, supporting safer deployment of deep learning in clinical imaging.
+        </p>
+      </div>
+    </section>
+
+    <section class="section project-papers-section">
+      <div class="container project-papers">
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj3_Fig1.png" class="glightbox project-figure-link" data-gallery="project-2" aria-label="1">
+                  <img src="./assets/img/Proj3_Fig1.png" class="project-figure" alt="1">
+                </a>
+                <figcaption> Comparison against the fully-sampled ground-truth of image reconstructions obtained using the FI VarNet and E2E VarNet models for four-fold undersampling.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">Scientific Reports · 2024</p>
+              <h3>Accelerated MRI Reconstructions via Variational Network and Feature Domain Learning</h3>
+              <p>
+               This work introduces three architecture modifications to enhance the performance of the end-to-end (E2E) variational network (VarNet) for undersampled MRI reconstructions.
+               We first implemented Feature VarNet which propagates information throughout the cascades of the network in an N-channel feature-space instead of a 2-channel feature-space. 
+               Then we included a custom attention layer that utilizes the spatial locations of Cartesian undersampling artifacts to further improve performance. Lastly, we combined the
+               Feature and E2E VarNets into the Feature-Image (FI) VarNet, to facilitate cross-domain learning and boost accuracy. 
+               FI VarNet secured second place in the public fastMRI leaderboard for 4x Cartesian undersampling, outperforming all open-source models in the leaderboard. 
+               The proposed FI VarNet enhances the reconstruction quality of undersampled MRI and could enable clinically acceptable reconstructions at higher acceleration factors than currently possible.
+              </p>
+              <a class="project-paper-link" href="https://www.nature.com/articles/s41598-024-59705-0" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 order-lg-2">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj3_Fig2.png" class="glightbox project-figure-link" data-gallery="project-2" aria-label="2">
+                  <img src="./assets/img/Proj3_Fig2.png" class="project-figure" loading="lazy" alt="2">
+                </a>
+                <figcaption> Reconstructed images, zoomed lesion views, absolute errors with the ground-truth, and corresponding QR-based uncertainty maps for one abnormal brain and five acceleration factors.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 order-lg-1 project-paper-copy">
+              <p class="project-paper-meta">Magnetic Resonance in Medicine · 2026</p>
+              <h3>Pixel-Wise Uncertainty Quantification of AcceleratedMRI Reconstruction</h3>
+              <p>
+                This work introduced an automated method to assess the quality of under-sampled MRI reconstructions. 
+                We proposed a general framework for pixel-wise uncertainty quantification in accelerated MRI reconstructions, enabling automatic identification of unreliable regions without using 
+                ground-truth fully-sampled reference images. Our method integrates conformal quantile regression with learning-based image reconstruction methods to estimate statistically 
+                rigorous pixel-wise uncertainty intervals. We trained and evaluated our model on Cartesian undersampled brain and knee dataobtained from the fastMRI dataset using acceleration factors
+                ranging from 2 to 10. Quantitative experiments demonstrate strong agreement between predicted uncertainty maps and true reconstruction error. 
+                Qualitative examples further show the uncertainty maps based on quantile regression capture the magnitudeand spatial distribution of reconstruction errors across acceleration factors,
+                with regions of elevated uncertainty aligning with pathologies and artifacts. The proposed framework enables evaluation of reconstruction quality without access to fully-sampled
+                ground-truth reference images.
+              </p>
+              <a class="project-paper-link" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/mrm.70526" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
