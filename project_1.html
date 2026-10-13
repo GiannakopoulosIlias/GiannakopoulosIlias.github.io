@@ -106,60 +106,6 @@
 
     <section class="section project-papers-section">
       <div class="container project-papers">
-        <article class="project-paper" data-aos="fade-up">
-          <div class="row align-items-center g-4 g-lg-5">
-            <div class="col-lg-6">
-              <figure class="project-figure-block">
-                <a href="./assets/img/Proj1_Fig1.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="1">
-                  <img src="./assets/img/Proj1_Fig1.png" class="project-figure" alt="1">
-                </a>
-                <figcaption>Relative error of the absorbed power and transmit magnetic field between the Tucker-based decomposition approaches and the baseline method.</figcaption>
-              </figure>
-            </div>
-            <div class="col-lg-6 project-paper-copy">
-              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2019</p>
-              <h3>Memory Footprint Reduction for the FFT-Based Volume Integral Equation Method via Tensor Decompositions</h3>
-              <p>
-                This work presents a method of memory footprint reduction for FFT-based electromagnetic volume integral equation (VIE) formulations. 
-                The arising Green's function tensors of VIE have low multilinear rank properties, which allows Tucker decomposition to be employed for their compression, 
-                thereby greatly reducing the required memory storage of the corresponding numerical simulations. Consequently, the compressed components are able to fit in
-                GPU on which highly parallelized computations can vastly accelerate the iterative solution of the arising linear system. 
-                We demonstrate the utility of our approach via its application to VIE simulations for the magnetic resonance imaging (MRI) of a human head. 
-                For these simulations, we report an order-of-magnitude acceleration over standard techniques.
-                </p>
-              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2019.2930126" target="_blank" rel="noopener noreferrer">
-                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-paper" data-aos="fade-up">
-          <div class="row align-items-center g-4 g-lg-5">
-            <div class="col-lg-6">
-              <figure class="project-figure-block">
-                <a href="./assets/img/Proj1_Fig6.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="1">
-                  <img src="./assets/img/Proj1_Fig6.png" class="project-figure" alt="1">
-                </a>
-                <figcaption>Sagittal views of the magnetic transmit field in a realistic human head model with an attached highpermittivity dielectric pad at 7 T MRI.</figcaption>
-              </figure>
-            </div>
-            <div class="col-lg-6 project-paper-copy">
-              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2020</p>
-              <h3>A Fast Volume Integral Equation Solver With Linear Basis Functions for the Accurate Computation of EM Fields in MRI</h3>
-              <p>
-                This work presents a stable volume integral equation (VIE) solver based on polarization/magnetization currents, for the accurate and efficient computation of the
-                electromagnetic (EM) scattering from highly inhomogeneous and high contrast objects. We employed the Galerkin method of moments to discretize the formulation with
-                discontinuous piecewise linear basis functions on uniform voxelized grids, allowing for the acceleration of the associated matrix-vector products in an iterative solver
-                , with the help of FFT. The developed solver is applied to analyze complex geometries, including realistic human body models, 
-                typically used in modeling the interactions between EM waves and biological tissue.
-                </p>
-              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2020.3044685" target="_blank" rel="noopener noreferrer">
-                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
 
         <article class="project-paper" data-aos="fade-up">
           <div class="row align-items-center g-4 g-lg-5">
@@ -188,67 +134,6 @@
                 for very fine voxel resolutions, where the associated coupling matrix was compressed from 80TB to 43MB.
               </p>
               <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2021.3090835" target="_blank" rel="noopener noreferrer">
-                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-paper" data-aos="fade-up">
-          <div class="row align-items-center g-4 g-lg-5">
-            <div class="col-lg-6">
-              <figure class="project-figure-block">
-                <a href="./assets/img/Proj1_Fig3.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="3">
-                  <img src="./assets/img/Proj1_Fig3.png" class="project-figure" loading="lazy" alt="3">
-                </a>
-                <figcaption> Magnitude of transmit field for an MRI transceive coil at 7T MRI. Results are shown for piecewise constant and piecewise linear basis functions. Simulations at such fine resolutions are completed in a practical time through our hybrid SVIE approach.</figcaption>
-              </figure>
-            </div>
-            <div class="col-lg-6 project-paper-copy">
-              <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2023</p>
-              <h3>A Hybrid Volume-Surface Integral Equation Method for Rapid Electromagnetic Simulations in MRI</h3>
-              <p>
-                This work develops a hybrid volume-surface integral equation method based on domain decomposition to perform fast and accurate MRI simulations 
-                that include both remote and local conductive elements. The conductive surfaces present in MRI setups are separated into two domains so that 
-                electromagnetic modeling can be optimized for each case. Interactions between the body and electromagnetic waves originating from local radiofrequency 
-                coils are modeled with the precorrected fast Fourier transform, whereas interactions with remote conductive surfaces, including the radiofrequency shield
-                and scanner bore, are modeled with a cross tensor train-based algorithm. Compared with traditional volume-surface integral equation approaches, the hybrid method
-                markedly improves the convergence time of numerical electromagnetic simulations and enables rapid simulations of complex and comprehensive MRI setups.
-              </p>
-              <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2022.3186235" target="_blank" rel="noopener noreferrer">
-                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-paper" data-aos="fade-up">
-          <div class="row align-items-center g-4 g-lg-5">
-            <div class="col-lg-6 order-lg-2">
-              <figure class="project-figure-block">
-                <a href="./assets/img/Proj1_Fig4.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="4">
-                  <img src="./assets/img/Proj1_Fig4.png" class="project-figure" loading="lazy" alt="4">
-                </a>
-                <figcaption>Temporal snapshots of the ideal current patterns yielding optimal signal-to-noise ratio at a voxel in the back of the head for a helmet former at 1.5, 3, and 7 T.</figcaption>
-              </figure>
-            </div>
-            <div class="col-lg-6 order-lg-1 project-paper-copy">
-              <p class="project-paper-meta">Magnetic Resonance in Medicine · 2024</p>
-              <a class="project-award" href="https://onlinelibrary.wiley.com/page/journal/15222594/homepage/editor_s_picks.htm" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-award" aria-hidden="true"></i> Editor's Pick
-              </a>
-              
-              <h3>Computational Methods for the Estimation of Ideal Current Patterns in Realistic Human Models</h3>
-              <p>
-                This work introduces a method for estimating the ideal current patterns that yield optimal signal-to-noise ratio for realistic heterogeneous
-                tissue models in MRI. The ideal current patterns are calculated for different surfaces that resemble typical radiofrequency coil formers. 
-                Numerical electromagnetic bases are constructed to accurately represent the electromagnetic fields generated by radiofrequency current sources
-                located on these current-bearing surfaces. Using these fields as excitations, the volume integral equation is solved to compute the electromagnetic
-                fields in the sample. The fields are then appropriately weighted to calculate the optimal signal-to-noise ratio and the corresponding ideal current patterns. 
-                The work also demonstrates how these patterns can be used qualitatively to guide the design of application-specific radiofrequency
-                coil arrays that maximize signal-to-noise ratio inside a human head model.
-              </p>
-              <a class="project-paper-link" href="https://doi.org/10.1002/mrm.29864" target="_blank" rel="noopener noreferrer">
                 Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
               </a>
             </div>
@@ -290,6 +175,154 @@
             </div>
           </div>
         </article>
+        
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig1.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="1">
+                  <img src="./assets/img/Proj1_Fig1.png" class="project-figure" alt="1">
+                </a>
+                <figcaption>Relative error of the absorbed power and transmit magnetic field between the Tucker-based decomposition approaches and the baseline method.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2019</p>
+              <h3>Memory Footprint Reduction for the FFT-Based Volume Integral Equation Method via Tensor Decompositions</h3>
+              <p>
+                This work presents a method of memory footprint reduction for FFT-based electromagnetic volume integral equation (VIE) formulations. 
+                The arising Green's function tensors of VIE have low multilinear rank properties, which allows Tucker decomposition to be employed for their compression, 
+                thereby greatly reducing the required memory storage of the corresponding numerical simulations. Consequently, the compressed components are able to fit in
+                GPU on which highly parallelized computations can vastly accelerate the iterative solution of the arising linear system. 
+                We demonstrate the utility of our approach via its application to VIE simulations for the magnetic resonance imaging (MRI) of a human head. 
+                For these simulations, we report an order-of-magnitude acceleration over standard techniques.
+                </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2019.2930126" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig3.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="3">
+                  <img src="./assets/img/Proj1_Fig3.png" class="project-figure" loading="lazy" alt="3">
+                </a>
+                <figcaption> Magnitude of transmit field for an MRI transceive coil at 7T MRI. Results are shown for piecewise constant and piecewise linear basis functions. Simulations at such fine resolutions are completed in a practical time through our hybrid SVIE approach.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2023</p>
+              <h3>A Hybrid Volume-Surface Integral Equation Method for Rapid Electromagnetic Simulations in MRI</h3>
+              <p>
+                This work develops a hybrid volume-surface integral equation method based on domain decomposition to perform fast and accurate MRI simulations 
+                that include both remote and local conductive elements. The conductive surfaces present in MRI setups are separated into two domains so that 
+                electromagnetic modeling can be optimized for each case. Interactions between the body and electromagnetic waves originating from local radiofrequency 
+                coils are modeled with the precorrected fast Fourier transform, whereas interactions with remote conductive surfaces, including the radiofrequency shield
+                and scanner bore, are modeled with a cross tensor train-based algorithm. Compared with traditional volume-surface integral equation approaches, the hybrid method
+                markedly improves the convergence time of numerical electromagnetic simulations and enables rapid simulations of complex and comprehensive MRI setups.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TBME.2022.3186235" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig6.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="1">
+                  <img src="./assets/img/Proj1_Fig6.png" class="project-figure" alt="1">
+                </a>
+                <figcaption>Sagittal views of the magnetic transmit field in a realistic human head model with an attached highpermittivity dielectric pad at 7 T MRI.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Antennas and Propagation · 2020</p>
+              <h3>A Fast Volume Integral Equation Solver With Linear Basis Functions for the Accurate Computation of EM Fields in MRI</h3>
+              <p>
+                This work presents a stable volume integral equation (VIE) solver based on polarization/magnetization currents, for the accurate and efficient computation of the
+                electromagnetic (EM) scattering from highly inhomogeneous and high contrast objects. We employed the Galerkin method of moments to discretize the formulation with
+                discontinuous piecewise linear basis functions on uniform voxelized grids, allowing for the acceleration of the associated matrix-vector products in an iterative solver
+                , with the help of FFT. The developed solver is applied to analyze complex geometries, including realistic human body models, 
+                typically used in modeling the interactions between EM waves and biological tissue.
+                </p>
+              <a class="project-paper-link" href="https://doi.org/10.1109/TAP.2020.3044685" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig7.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="3">
+                  <img src="./assets/img/Proj1_Fig7.png" class="project-figure" loading="lazy" alt="3">
+                </a>
+                <figcaption> Triangular coil in a stadium substrate loaded with two realistic human body models.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 project-paper-copy">
+              <p class="project-paper-meta">IEEE Transactions on Biomedical Engineering · 2023</p>
+              <h3>MARIE 2.0: A Perturbation Matrix Based Patient-Specific MRI Field Simulator</h3>
+              <p>
+                High static field MR scanners can produce human tissue images of astounding clarity, but rely on high frequency electromagnetic radiation that generates complicated 
+                in-tissue field patterns that are patient-specific and potentially harmful. Many such scanners use parallel transmitters to better control field patterns, but then 
+                adjust the transmitters based on general guidelines rather than optimizing for the specific patient, mostly because computing patient-specific fields was presumed 
+                far too slow. It was recently demonstrated that the combination of fast low-resolution tissue mapping and fast voxel-based field simulation can be used to perform
+                a patient-specific MR safety check in minutes. However, the field simulation required several of those minutes, making it too slow to perform the dozens of simulations
+                that would be needed for patient-specific optimization. In this paper we describe a compressed-perturbation-matrix technique that nearly eliminates the computational
+                cost of including complex coils (or coils and shields) in voxel-based field simulation of tissue, thereby reducing simulation time from minutes to seconds.
+              </p>
+              <a class="project-paper-link" href="https://ieeexplore.ieee.org/abstract/document/9953535" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        
+
+        <article class="project-paper" data-aos="fade-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 order-lg-2">
+              <figure class="project-figure-block">
+                <a href="./assets/img/Proj1_Fig4.png" class="glightbox project-figure-link" data-gallery="project-1" aria-label="4">
+                  <img src="./assets/img/Proj1_Fig4.png" class="project-figure" loading="lazy" alt="4">
+                </a>
+                <figcaption>Temporal snapshots of the ideal current patterns yielding optimal signal-to-noise ratio at a voxel in the back of the head for a helmet former at 1.5, 3, and 7 T.</figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6 order-lg-1 project-paper-copy">
+              <p class="project-paper-meta">Magnetic Resonance in Medicine · 2024</p>
+              <a class="project-award" href="https://onlinelibrary.wiley.com/page/journal/15222594/homepage/editor_s_picks.htm" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-award" aria-hidden="true"></i> Editor's Pick
+              </a>
+              
+              <h3>Computational Methods for the Estimation of Ideal Current Patterns in Realistic Human Models</h3>
+              <p>
+                This work introduces a method for estimating the ideal current patterns that yield optimal signal-to-noise ratio for realistic heterogeneous
+                tissue models in MRI. The ideal current patterns are calculated for different surfaces that resemble typical radiofrequency coil formers. 
+                Numerical electromagnetic bases are constructed to accurately represent the electromagnetic fields generated by radiofrequency current sources
+                located on these current-bearing surfaces. Using these fields as excitations, the volume integral equation is solved to compute the electromagnetic
+                fields in the sample. The fields are then appropriately weighted to calculate the optimal signal-to-noise ratio and the corresponding ideal current patterns. 
+                The work also demonstrates how these patterns can be used qualitatively to guide the design of application-specific radiofrequency
+                coil arrays that maximize signal-to-noise ratio inside a human head model.
+              </p>
+              <a class="project-paper-link" href="https://doi.org/10.1002/mrm.29864" target="_blank" rel="noopener noreferrer">
+                Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
   </main>
